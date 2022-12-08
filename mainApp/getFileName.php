@@ -1,6 +1,6 @@
 
 <?php
-
+/*
 $fh = fopen('https://file-upload-app.herokuapp.com/getFilePath.php', 'r');
 
 while($sRec = fgets($fh))
@@ -12,5 +12,5 @@ while($sRec = fgets($fh))
 }
 
 fclose($fh);
-
+*/
 ?>
