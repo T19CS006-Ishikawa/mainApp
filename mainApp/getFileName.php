@@ -9,7 +9,7 @@ while($sRec = fgets($fh)){
 }
 fclose($fh);
 
-$c = file_get_contents('https://file-upload-app.herokuapp.com/upfile/list.txt');
+$c = file_get_contents('https://file-upload-app.herokuapp.com/upfile/NULL.txt');
 echo $c;
 
 
