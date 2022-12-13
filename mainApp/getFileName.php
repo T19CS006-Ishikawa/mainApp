@@ -1,6 +1,6 @@
 
 <?php
-$path = 'https://file-upload-app.herokuapp.com/upfile/*.txt';
+$path = 'https://file-upload-app.herokuapp.com/upfile/';
 /*
 $fh = fopen($path, 'r');
 
