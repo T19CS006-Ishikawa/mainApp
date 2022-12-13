@@ -1,13 +1,13 @@
 
 <?php
-$path = 'https://file-upload-app.herokuapp.com/upfile/';
+$path = 'https://file-upload-app.herokuapp.com/';
 
 $fh = fopen($path, 'r');
 
 while($sRec = fgets($fh)){
- //echo $sRec."<BR>";
+  echo $sRec."<BR>";
   $c = file_get_contents($path.$sRec);
-  echo $c;
+  //echo $c;
 }
 fclose($fh);
 
