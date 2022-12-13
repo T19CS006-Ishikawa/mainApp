@@ -1,6 +1,6 @@
 
 <?php
-$path = 'https://file-upload-app.herokuapp.com/list.csv';
+$path = 'https://file-upload-app.herokuapp.com/list.txt';
 $fh = fopen($path, 'r');
 $df = fgets($fh);
 
