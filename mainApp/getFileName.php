@@ -7,7 +7,7 @@ $df = fgets($fh);
 while($sRec = fgets($fh)){
     
  echo $sRec."<BR>";
- 
+ break;
 }
 
 fclose($fh);
