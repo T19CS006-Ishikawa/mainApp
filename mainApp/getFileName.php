@@ -10,7 +10,7 @@ while($cFile = fgets($fh)){
 }
 $eCount = 0;
 while($eCount!=$count){
-    $data[$eCount];
+    echo $data[$eCount];
 }
 /*
 while($sRec = fgets($fh))
