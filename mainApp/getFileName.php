@@ -1,7 +1,7 @@
 
 <?php
-$path = 'getFileName.php';
-$fh = fopen('https://file-upload-app.herokuapp.com/'.$path, 'r');
+$path = 'https://file-upload-app.herokuapp.com/getFileName.php';
+$fh = fopen($path, 'r');
 
 
 while($sRec = fgets($fh))
