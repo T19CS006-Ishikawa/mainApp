@@ -3,7 +3,7 @@
 $path = 'https://file-upload-app.herokuapp.com/getFileName.php';
 $fh = fopen($path, 'r');
 $df = fgets($fh);
-echo $df;
+echo $df."<BR>";
 /*
 while($sRec = fgets($fh))
 
