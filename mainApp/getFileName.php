@@ -2,13 +2,13 @@
 <?php
 $c = file_get_contents('https://file-upload-app.herokuapp.com/upfile/list.txt');
 //echo $c;
-
+$fp = "mainList.txt";
 //mainApp内にtxtを実質コピーする
-$handle =  fopen("mainList.txt","w");
+$handle =  fopen($fp,"w");
     fputs($handle,$c);
     readfile("mainList.txt");
-    //print_r(file("mainList.txt"))
-    $list = explode("\n","mainList.txt" );
+    $list = file("mainList.txt");
+    $list = explode("\n", );
     foreach($list as $str){
         echo $str;
     }
