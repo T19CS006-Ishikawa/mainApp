@@ -10,7 +10,7 @@ $handle =  fopen($fp,"w");
 fclose($handle);
 
 $read = fopen($fp,"r");
-$list = file($read);
+//$list = file($read);
 $list = explode("\n",$list );
 foreach($list as $str){
     echo $str;
