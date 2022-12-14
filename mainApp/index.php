@@ -7,6 +7,9 @@
 		<form	enctype = "multipart/form-data" action = "./getFileName.php"	method="POST">
 			<input type = "submit" value ="取得">
 		</form>
+		<form	enctype = "multipart/form-data" action = "./getCSV.php"	method="POST">
+			<input type = "submit" value ="CSV">
+		</form>
 
 	</body>
 </html>
