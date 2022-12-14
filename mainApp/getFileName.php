@@ -3,10 +3,13 @@
 $c = file_get_contents('https://file-upload-app.herokuapp.com/upfile/list.txt');
 //echo $c;
 
-//テキストファイルの名前を一行ごと配列に格納
+//mainApp内にtxtを実質コピーする
+$handle =  fopen("./mainList.txt","w");
+    fputs($handle,$c);
+fclose($handle);
 
-$file_array = file($c);/*一行ずつ格納*/
- print_r($file_array);
+$result = glob("./*.txt");
+echo $result[0];
 
 
 ?>
