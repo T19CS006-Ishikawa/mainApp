@@ -19,9 +19,9 @@ foreach ($file_array as $name) {
     print $name."<br>";
 }
 */
-$csv_array =[];
+
 $count = 0;
- 
+ print $path.$file_array[0] ;
  //csv抽出
 $fp = fopen($path.$file_array[$count],'r');
    while($line = fgetcsv($fp)){
