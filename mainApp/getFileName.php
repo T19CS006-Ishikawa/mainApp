@@ -21,14 +21,16 @@ foreach ($file_array as $name) {
 */
 
 $count = 0;
- print $path.$file_array[0] ;
- //csv抽出
+ print $file_array[0] ;
+ 
+ /*csv抽出
 $fp = fopen($path.$file_array[$count],'r');
    while($line = fgetcsv($fp)){
         var_dump($line);
         echo "<br />";
     }
  fclose($fp);
+ */
 
     
 
