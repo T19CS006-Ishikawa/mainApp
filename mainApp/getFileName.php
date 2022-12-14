@@ -8,9 +8,10 @@ $handle =  fopen("./mainList.txt","w");
     fputs($handle,$c);
     readfile("mainList.txt");
 fclose($handle);
-/*
-$result = glob("./*.txt");
-echo $result[0];
-*/
+
+$file_array = file("mainList.txt");
+echo $file_array;
+
+
 
 ?>
