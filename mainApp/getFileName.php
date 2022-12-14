@@ -7,20 +7,17 @@ $c = file_get_contents('https://file-upload-app.herokuapp.com/upfile/list.txt');
 $handle =  fopen("mainList.txt","w");
     fputs($handle,$c);
     readfile("mainList.txt");
-    print_r(file("mainList.txt"));
+    //print_r(file("mainList.txt"))
+    $list = explode("\n", $handle);
+    foreach($list as $str){
+        echo $str;
+    }
 fclose($handle);
 
 
 
 $path = "https://file-upload-app.herokuapp.com/upfile/";
 
-//行ごとに名前を格納
-//$file_array = file("mainList.txt");
-/*
-foreach ($file_array as $name) {
-    print $name."<br>";
-}
-*/
 
 $count = 0;
  print $file_array[1] ;
