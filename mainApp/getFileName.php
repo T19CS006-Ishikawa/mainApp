@@ -8,7 +8,7 @@ $handle =  fopen("mainList.txt","w");
     fputs($handle,$c);
     readfile("mainList.txt");
     //print_r(file("mainList.txt"))
-    $list = explode("\n", $handle);
+    $list = explode("\n","mainList.txt" );
     foreach($list as $str){
         echo $str;
     }
