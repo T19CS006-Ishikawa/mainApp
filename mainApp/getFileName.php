@@ -9,11 +9,16 @@ $handle =  fopen("./mainList.txt","w");
     //readfile("mainList.txt");
 fclose($handle);
 
+$handle =  fopen("./mainList.txt","r");
+    $file_array = split("<br>",$handle);
+    var_dump($file_array);
+//readfile("mainList.txt");
+fclose($handle);
 
 $path = "https://file-upload-app.herokuapp.com/upfile/";
 
 //行ごとに名前を格納
-$file_array = file("mainList.txt");
+//$file_array = file("mainList.txt");
 /*
 foreach ($file_array as $name) {
     print $name."<br>";
