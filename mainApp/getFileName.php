@@ -7,13 +7,10 @@ $c = file_get_contents('https://file-upload-app.herokuapp.com/upfile/list.txt');
 $handle =  fopen("mainList.txt","w");
     fputs($handle,$c);
     readfile("mainList.txt");
+    print_r(file("mainList,txt"));
 fclose($handle);
 
-$handle =  fopen("mainList.txt","r");
-    $file_array = split(".csv",$handle);
-    var_dump($file_array);
-//readfile("mainList.txt");
-fclose($handle);
+
 
 $path = "https://file-upload-app.herokuapp.com/upfile/";
 
