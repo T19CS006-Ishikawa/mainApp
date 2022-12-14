@@ -23,7 +23,7 @@ $csv_array =[];
 $count = 0;
  
  //csv抽出
-$fp = fopen($path.$file_array[$count]);
+$fp = fopen($path.$file_array[$count],'r');
    while($line = fgetcsv($fp)){
         var_dump($line);
         echo "<br />";
