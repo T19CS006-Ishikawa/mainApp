@@ -15,7 +15,7 @@ $list = explode("|",$read );
 //var_dump($list);
 
 foreach($list as $str){
-    echo $str."\n";
+    echo $str."<br>";
 }
 fclose($read);
     
