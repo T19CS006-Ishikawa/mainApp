@@ -6,12 +6,12 @@ $fp = "mainList.txt";
 //mainApp内にtxtを実質コピーする
 $handle =  fopen($fp,"w");
     fputs($handle,$c);
-    readfile("mainList.txt");
+    readfile($fp);
 fclose($handle);
 
-$read = fopen($fp,"r");
+$read = file_get_contents($fp);
 //$list = file($read);
-$list = explode("\n",$list );
+$list = explode("|",$read );
 foreach($list as $str){
     echo $str;
 }
