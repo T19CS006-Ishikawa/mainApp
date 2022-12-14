@@ -10,8 +10,8 @@ $handle =  fopen("./mainList.txt","w");
 fclose($handle);
 
 $file_array = file("mainList.txt");
-echo $file_array;
-
-
+foreach ($file_array as $no => $val) {
+    print $no . "行目/" . $val . "";
+}
 
 ?>
