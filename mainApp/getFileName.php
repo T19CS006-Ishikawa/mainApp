@@ -9,7 +9,7 @@ $handle =  fopen("./mainList.txt","w");
 fclose($handle);
 
 $result = glob("./*.txt");
-echo $result[0];
+echo $result[1];
 
 
 ?>
