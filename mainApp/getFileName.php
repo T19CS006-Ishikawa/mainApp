@@ -4,12 +4,12 @@ $c = file_get_contents('https://file-upload-app.herokuapp.com/upfile/list.txt');
 //echo $c;
 
 //mainApp内にtxtを実質コピーする
-$handle =  fopen("./mainList.txt","w");
+$handle =  fopen("mainList.txt","w");
     fputs($handle,$c);
     readfile("mainList.txt");
 fclose($handle);
 
-$handle =  fopen("./mainList.txt","r");
+$handle =  fopen("mainList.txt","r");
     $file_array = split(".csv",$handle);
     var_dump($file_array);
 //readfile("mainList.txt");
