@@ -7,12 +7,16 @@ $fp = "mainList.txt";
 $handle =  fopen($fp,"w");
     fputs($handle,$c);
     readfile("mainList.txt");
-    $list = file("mainList.txt");
-    $list = explode("\n",$list );
-    foreach($list as $str){
-        echo $str;
-    }
 fclose($handle);
+
+$read = fopen($fp,"r");
+$list = file($read);
+$list = explode("\n",$list );
+foreach($list as $str){
+    echo $str;
+}
+fclose($read);
+    
 
 
 
@@ -20,7 +24,7 @@ $path = "https://file-upload-app.herokuapp.com/upfile/";
 
 
 $count = 0;
- print $file_array[1] ;
+ //print $file_array[1] ;
  
  /*csv抽出
 $fp = fopen($path.$file_array[$count],'r');
