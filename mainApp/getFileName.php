@@ -10,7 +10,7 @@ $handle =  fopen("./mainList.txt","w");
 fclose($handle);
 
 $handle =  fopen("./mainList.txt","r");
-    $file_array = split("<br>",$handle);
+    $file_array = split(".csv",$handle);
     var_dump($file_array);
 //readfile("mainList.txt");
 fclose($handle);
