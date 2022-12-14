@@ -1,3 +1,15 @@
+<!doctype html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content = "text/html;charset=UTF-8">
+	</head>
+	<body>
+		<form	enctype = "multipart/form-data" action = "./getCSV.php"	method="POST">
+			<input type = "submit" value ="取得">
+		</form>
+
+	</body>
+</html>
 
 <?php
 $c = file_get_contents('https://file-upload-app.herokuapp.com/upfile/list.txt');
@@ -15,29 +27,13 @@ $list = explode("|",$read );
 //var_dump($list);
 
 foreach($list as $str){
-    echo $str."<br>";
+    echo $str;
+    echo '<br>';
 }
-fclose($read);
-    
 
 
 
-$path = "https://file-upload-app.herokuapp.com/upfile/";
 
-
-$count = 0;
- //print $file_array[1] ;
- 
- /*csv抽出
-$fp = fopen($path.$file_array[$count],'r');
-   while($line = fgetcsv($fp)){
-        var_dump($line);
-        echo "<br />";
-    }
- fclose($fp);
- */
-
-    
 
 
 ?>
