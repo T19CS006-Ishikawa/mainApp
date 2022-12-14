@@ -6,7 +6,7 @@ $c = file_get_contents('https://file-upload-app.herokuapp.com/upfile/list.txt');
 //mainApp内にtxtを実質コピーする
 $handle =  fopen("./mainList.txt","w");
     fputs($handle,$c);
-    //readfile("mainList.txt");
+    readfile("mainList.txt");
 fclose($handle);
 
 $handle =  fopen("./mainList.txt","r");
