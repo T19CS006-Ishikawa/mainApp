@@ -9,7 +9,7 @@ $read = file_get_contents($fp);
 $list = explode("|",$read );
 //var_dump($list);
 
-echo $list;
+echo $list[0];
 
 
 /*
