@@ -26,7 +26,7 @@ $data = file_get_contents($root);
 file_put_contents('./csvData',$data); //ファイルの保存先
 
 //check
-$filename = "/csvData/NULL.csv";
+$filename = "csvData/課題データ2.csv";
 
 if (file_exists($filename)) {
     echo "$filename が存在します";
