@@ -1,6 +1,6 @@
 <?php 
-$path = 'https://file-upload-app.herokuapp.com/upfile';
-$c = file_get_contents($path);
+$path = 'https://app-for-lms.herokuapp.com/csvData';
+
 //echo $c;
 $fp = "mainList.txt";
 
@@ -19,12 +19,13 @@ echo "<br>";
 
 
 // ダウンロード元のファイルパス（絶対パス、ファイル名まで含む）を指定する
-$url = $root;
+//$root
 
-$data = file_get_contents($url);
+$data = file_get_contents($root);
 
 file_put_contents('./csvData',$data); //ファイルの保存先
 
+//check
 $filename = "/csvData/NULL.csv";
 
 if (file_exists($filename)) {
