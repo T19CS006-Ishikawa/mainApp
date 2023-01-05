@@ -24,9 +24,9 @@ echo "<br>";
 
 
 // ダウンロード元のファイルパス（絶対パス、ファイル名まで含む）を指定する
-$url = $dlroot;
 
-$data = file_get_contents($url);
+
+$data = file_get_contents($path);
 echo $data;
 
 file_put_contents('./csvData',$data); //ファイルの保存先
