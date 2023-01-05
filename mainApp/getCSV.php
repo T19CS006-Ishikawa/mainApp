@@ -24,7 +24,12 @@ $data = file_get_contents($url);
 
 file_put_contents('./csvData',$data); //ファイルの保存先
 
+$filename = "./csvData/*.csv";
 
-//$check = file_get_contents('./csvData'.$csvname);
+if (file_exists($filename)) {
+    echo "$filename が存在します";
+} else {
+    echo "$filename は存在しません";
+}
 
 ?>
