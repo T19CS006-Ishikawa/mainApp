@@ -9,7 +9,11 @@ $read = file_get_contents($fp);
 $list = explode("|",$read );
 //var_dump($list);
 
-echo $list[0];
+//list[0] = ファイル名になる
+$csvname = '/'.$list[0];
+$root = $path.$csvname;
+
+echo $root;
 
 
 /*
