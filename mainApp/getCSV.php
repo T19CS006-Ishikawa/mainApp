@@ -14,6 +14,7 @@ $csvname = '/'.$list[0];
 $root = $path.$csvname;
 
 echo $root;
+echo "<br>";
 
 
 
@@ -24,7 +25,7 @@ $data = file_get_contents($url);
 
 file_put_contents('./csvData',$data); //ファイルの保存先
 
-$filename = "./csvData/*.csv";
+$filename = "./csvData/課題データ２.csv";
 
 if (file_exists($filename)) {
     echo "$filename が存在します";
