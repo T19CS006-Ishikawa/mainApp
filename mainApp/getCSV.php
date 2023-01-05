@@ -24,7 +24,7 @@ $data = file_get_contents($url);
 
 file_put_contents('./csvData',$data); //ファイルの保存先
 
-var_dump('./csvData'.$csvname);
+
 //$check = file_get_contents('./csvData'.$csvname);
 
 ?>
