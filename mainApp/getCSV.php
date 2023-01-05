@@ -25,12 +25,22 @@ echo "<br>";
 
 // ダウンロード元のファイルパス（絶対パス、ファイル名まで含む）を指定する
 
-
+// ダウンロードするサーバのファイルパス
+$filepath = dlroot;
+ 
+// HTTPヘッダ
+header('Content-Type: application/octet-stream');
+header('Content-Length: '.filesize($filepath));
+header('Content-Disposition: attachment; filename=download.csv');
+ 
+// ファイル出力
+readfile($filepath);
+/*
 $data = file_get_contents($path);
 echo $data;
 
 file_put_contents('./csvData',$data); //ファイルの保存先
-
+*/
 //check
 $filename = "csvData/課題データ2.csv";
 
