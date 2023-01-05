@@ -1,5 +1,5 @@
 <?php 
-$dlpath = 'https://file-Upload-app.herokuapp.com/upfile';
+$dlpath = 'https://file-upload-app.herokuapp.com/upfile';
 $path = 'https://app-for-lms.herokuapp.com/csvData';
 
 //echo $c;
