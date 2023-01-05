@@ -1,35 +1,25 @@
 <?php 
-$cf = file_get_contents("./getFileName.php");
-$file = '';
+$path = 'https://file-upload-app.herokuapp.com/upfile';
+$c = file_get_contents($path);
+//echo $c;
+$fp = "mainList.txt";
 
-//CSVファイルを読み込みモードでオープン
-if (($fp = fopen($file, 'r')) !== FALSE){
-    $row = 0;
-    
-    //CSVファイルを1行ずつ読み込む
-    while (($line = fgetcsv($fp)) !== FALSE) {
-        
-        //タイトル行の取得
-        if ($row ==  0){
-            echo 'タイトル:'.$line[0].'<br>';
-            $row++;
-            continue;
-        }
-        echo $line[0].'<br>';
-        echo $line[1].'<br>';
-        echo $line[2].'<br>';
-        echo $line[3].'<br>';
-        echo $line[4].'<br>';
-        
-        $row++;
-    }
-}else{
-    echo $file.'の読み込みに失敗しました。';
-}
+$read = file_get_contents($fp);
+//$list = file($read);
+$list = explode("|",$read );
+//var_dump($list);
 
-//ファイルをクローズ
-fclose($fp);
+echo $list;
 
+
+/*
+// ダウンロード元のファイルパス（絶対パス、ファイル名まで含む）を指定する
+$url = 'http://example.com/voice/voice.mp3';
+
+$data = file_get_contents($url);
+
+file_put_contents('./download/hozon.mp3',$data); //ファイルの保存先
+*/
 
 
 ?>
