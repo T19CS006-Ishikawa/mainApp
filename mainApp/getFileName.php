@@ -14,8 +14,10 @@ $read = file_get_contents($fp);
 $list = explode("|",$read );
 //var_dump($list);
 
-echo $list;
-
+foreach($list as $str){
+    echo $str;
+    echo '<br>';
+}
 
 
 
