@@ -16,14 +16,15 @@ $root = $path.$csvname;
 echo $root;
 
 
-/*
+
 // ダウンロード元のファイルパス（絶対パス、ファイル名まで含む）を指定する
-$url = 'http://example.com/voice/voice.mp3';
+$url = $root;
 
 $data = file_get_contents($url);
 
-file_put_contents('./download/hozon.mp3',$data); //ファイルの保存先
-*/
+file_put_contents('./csvData',$data); //ファイルの保存先
 
+var_dump('./csvData'.$csvname);
+//$check = file_get_contents('./csvData'.$csvname);
 
 ?>
