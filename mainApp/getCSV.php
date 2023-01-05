@@ -27,7 +27,7 @@ echo "<br>";
 $url = $dlroot;
 
 $data = file_get_contents($url);
-
+echo $data;
 
 file_put_contents('./csvData',$data); //ファイルの保存先
 
