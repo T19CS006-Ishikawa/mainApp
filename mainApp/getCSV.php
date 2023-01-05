@@ -28,6 +28,7 @@ $url = $dlroot;
 
 $data = file_get_contents($url);
 
+
 file_put_contents('./csvData',$data); //ファイルの保存先
 
 //check
