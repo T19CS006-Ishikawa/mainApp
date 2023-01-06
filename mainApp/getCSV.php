@@ -25,7 +25,7 @@ echo "<br>";
 
 
 
-$data = file_get_contents($path);
+$data = file_get_contents($dlroot);
 echo $data;
 echo "<br>";
 
