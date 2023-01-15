@@ -8,7 +8,6 @@ $fp = "mainList.txt";
 
 $read = file_get_contents($fp);
 //$list = file($read);
-var_dump($read);
 $list = explode("|",$read );
 var_dump($list);
 
@@ -28,6 +27,7 @@ echo "<br>";
 
 
 $data = file_get_contents($dlroot);
+echo "<br>";
 echo $data;
 echo "<br>";
 
