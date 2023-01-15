@@ -1,7 +1,7 @@
 
 <?php
 $c = file_get_contents('https://file-upload-app.herokuapp.com/upfile/list.txt');
-//echo $c;
+echo $c;
 $fp = "mainList.txt";
 //mainApp内にtxtを実質コピーする
 $handle =  fopen($fp,"w");
