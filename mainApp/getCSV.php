@@ -17,7 +17,7 @@ $csvname = '/'.$list[0];
 $dlroot = $dlpath.$csvname;
 $root = $path.$csvname;
 
-
+echo "<br>";
 echo "ダウンロード元：".$dlroot;
 echo "<br>";
 echo "ダウンロード先：".$root;
@@ -31,11 +31,14 @@ echo "<br>";
 echo $data;
 echo "<br>";
 
+
+//ここをいじる
 file_put_contents('./csvData',$data); //ファイルの保存先
 
 
 
 //check
+/*
 $filename = "csvData/課題データ2.csv";
 
 if (file_exists($filename)) {
@@ -43,6 +46,7 @@ if (file_exists($filename)) {
 } else {
     echo "$filename は存在しません";
 }
+*/
 /*＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿*/
 
 
