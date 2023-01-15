@@ -17,12 +17,12 @@ $csvname = '/'.$list[0];
 $dlroot = $dlpath.$csvname;
 $root = $path.$csvname;
 
-/*
+
 echo "ダウンロード元：".$dlroot;
 echo "<br>";
 echo "ダウンロード先：".$root;
 echo "<br>";
-*/
+
 
 
 
