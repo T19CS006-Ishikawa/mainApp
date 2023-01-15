@@ -8,8 +8,9 @@ $fp = "mainList.txt";
 
 $read = file_get_contents($fp);
 //$list = file($read);
+var_dump($read);
 $list = explode("|",$read );
-//var_dump($list);
+var_dump($list);
 
 //list[0] = csvファイル名になる
 $csvname = '/'.$list[0];
@@ -17,12 +18,12 @@ $csvname = '/'.$list[0];
 $dlroot = $dlpath.$csvname;
 $root = $path.$csvname;
 
-
+/*
 echo "ダウンロード元：".$dlroot;
 echo "<br>";
 echo "ダウンロード先：".$root;
 echo "<br>";
-
+*/
 
 
 
