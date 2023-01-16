@@ -34,7 +34,7 @@ echo "<br>";
 
 //ここをいじる
 $path = './csvData/';
-$content = $data."\n";
+$content = $data."<br>";
 
 if( is_writable($path)){
     
