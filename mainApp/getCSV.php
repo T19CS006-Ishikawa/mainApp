@@ -1,7 +1,7 @@
 <?php 
 //＿＿＿＿＿＿mainApp＿mainApp＿mainApp＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿
 $dlpath = 'https://file-upload-app.herokuapp.com/upfile';
-$path = 'https://app-for-lms.herokuapp.com/csvData';
+//$path = 'https://app-for-lms.herokuapp.com/csvData';
 
 //echo $c;
 $fp = "mainList.txt";
@@ -15,13 +15,12 @@ var_dump($list);
 $csvname = '/'.$list[0];
 
 $dlroot = $dlpath.$csvname;
-$root = $path.$csvname;
+//$root = $path.$csvname;
 
 echo "<br>";
 echo "ダウンロード元：".$dlroot;
 echo "<br>";
-echo "ダウンロード先：".$root;
-echo "<br>";
+
 
 
 
@@ -45,16 +44,15 @@ if( is_writable($path)){
 }
 
 
-//check
-/*
-$filename = "csvData/課題データ2.csv";
+
+$filename = "./csvData/list.txt";
 
 if (file_exists($filename)) {
     echo "$filename が存在します";
 } else {
     echo "$filename は存在しません";
 }
-*/
+
 /*＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿*/
 
 
