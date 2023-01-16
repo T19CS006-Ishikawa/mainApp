@@ -10,6 +10,9 @@
 		<form	enctype = "multipart/form-data" action = "./getCSV.php"	method="POST">
 			<input type = "submit" value ="CSV">
 		</form>
+				<form	enctype = "multipart/form-data" action = "./checkList.php"	method="POST">
+			<input type = "submit" value ="リストチェック">
+		</form>
 
 	</body>
 </html>
