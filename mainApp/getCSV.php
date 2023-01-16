@@ -26,6 +26,7 @@ echo "<br>";
 
 
 $data = file_get_contents($dlroot);
+$data = $data.",not";
 echo "<br>";
 echo $data;
 echo "<br>";
@@ -36,7 +37,9 @@ $array = explode(',', $data);
 print_r($array);
 
 //ここをいじる
-$path = './csvData/';
+$path = __DIR__.'/csvData/';
+echo $path;
+echo "<br>";
 $content = $data."<br>";
 if( is_writable($path)){
     
