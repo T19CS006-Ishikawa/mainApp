@@ -33,8 +33,18 @@ echo "<br>";
 
 
 //ここをいじる
-file_put_contents('./csvData',$data); //ファイルの保存先
+$path = './csvData/';
+$content = $data."\n";
 
+if( is_writable($path)){
+    
+    $file_handle = fopen($path."data.txt","w");
+    fwrite($file_handle, $content);
+    fwrite($file_handle, "やあ＾＾");
+    
+    fclose($file_handle);
+    
+}
 
 
 //check
