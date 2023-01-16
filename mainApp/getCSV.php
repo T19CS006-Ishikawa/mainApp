@@ -30,6 +30,10 @@ echo "<br>";
 echo $data;
 echo "<br>";
 
+//カンマ区切りで配列に格納
+$array = explode(',', $data);
+
+print_r($array);
 
 //ここをいじる
 $path = './csvData/';
@@ -44,14 +48,6 @@ if( is_writable($path)){
 }
 
 
-
-$filename = "./csvData/list.txt";
-
-if (file_exists($filename)) {
-    echo "$filename が存在します";
-} else {
-    echo "$filename は存在しません";
-}
 
 /*＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿*/
 
