@@ -34,8 +34,7 @@ echo "<br>";
 
 //ここをいじる
 $path = './csvData/';
-//$content = $data."<br>";
-$content = $data;
+$content = $data."<br>";
 if( is_writable($path)){
     
     $file_handle = fopen($path."data.txt","w");
