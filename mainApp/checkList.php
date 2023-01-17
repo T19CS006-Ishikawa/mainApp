@@ -1,7 +1,8 @@
 <?php
 
-$print = fopen("./csvData/data.txt","r");
-$name = fgets($print);
-echo $name;
+$filename = 'https://app-for-lms.herokuapp.com/csvData/data.txt';
+$print = file_get_contents($filename);
+
+echo $print;
 
 ?>

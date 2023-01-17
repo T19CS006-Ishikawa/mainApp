@@ -76,7 +76,7 @@ for($num = 0; $num < count($list)-1;$num++){
     
     //プッシュメッセージ送信
     file_get_contents($push_path);
-    //送信ステータスを変更(send)にする
+    //送信ステータスを変更(sendに)する
     $array[4] = "send";
     
 }
