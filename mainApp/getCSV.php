@@ -20,6 +20,9 @@ for($num = 0; $num < count($list)-1;$num++){
 
     //ダウンロード元からCSVファイルの中身を取得
     $data = file_get_contents($dlroot);
+    //中身のテキストからダブルクォーテーションを除去
+    $data = str_replace('"', '', $data);
+    //ステータスを追加
     $data = $data.",no,no";
     echo $data;
     echo "<br>";
