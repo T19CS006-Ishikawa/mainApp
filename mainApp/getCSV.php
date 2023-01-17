@@ -52,10 +52,10 @@ for($num = 0; $num < count($list)-1;$num++){
 
     //課題データ(テキスト)を保存するためのテキストファイルを作成＋追記する
     $path = __DIR__.'/csvData/';
-    $dir = 'data.txt';
+    $dir = 'push.txt';
+    $data_dir = 'data.txt';
     
     //送信する文章を編集
-    $word = "work";
     if(count($array) == 6){
         $sentense = "新しい課題です。"."\n"."科目：".$array[2]."\n"."課題名：".$array[3]."\n"."期限：".$array[1];
     }else{
@@ -75,12 +75,12 @@ for($num = 0; $num < count($list)-1;$num++){
         
         
         //保存用のテキストファイル、'|'を区切り文字として追記
-        if(file_exists($path.$dir)){
-            $file_handle = fopen($path."data.txt".'|','a');
-            fputs($file_handle, $content);
+        if(file_exists($path.$data_dir)){
+            $file_handle = fopen($path."data.txt",'a');
+            fputs($file_handle, $content.'|');
         }else{
-            $file_handle = fopen($path."data.txt".'|','w');
-            fputs($file_handle, $content);
+            $file_handle = fopen($path."data.txt",'w');
+            fputs($file_handle, $content.'|');
         }
         
     
