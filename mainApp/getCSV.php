@@ -1,53 +1,49 @@
 <?php 
 //＿＿＿＿＿＿mainApp＿mainApp＿mainApp＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿
+//ダウンロード元のURL
 $dlpath = 'https://file-upload-app.herokuapp.com/upfile';
-//$path = 'https://app-for-lms.herokuapp.com/csvData';
 
-//echo $c;
 $fp = "mainList.txt";
 
 $read = file_get_contents($fp);
-//$list = file($read);
+
+//カンマを区切り文字としてファイル名をそれぞれ配列に格納する
 $list = explode(",",$read );
+//配列の中身を表示
 var_dump($list);
 
-//list[0] = csvファイル名になる
-$csvname = '/'.$list[0];
+//listの末尾要素以外にそれぞれファイル名が格納されている
 
-$dlroot = $dlpath.$csvname;
-//$root = $path.$csvname;
+for($num = 0; $num < count($list);$num++){
+    $csvname = '/'.$list[$num];
+    $dlroot = $dlpath.$csvname;
 
-echo "<br>";
-echo "ダウンロード元：".$dlroot;
-echo "<br>";
+    //ダウンロード元からCSVファイルの中身を取得
+    $data = file_get_contents($dlroot);
+    $data = $data.",no,no";
+    echo $data;
+    echo "<br>";
 
+    //カンマ区切りで配列に格納
+ //   $array = explode(',', $data);
+ //   print_r($array);
 
-
-
-
-$data = file_get_contents($dlroot);
-$data = $data.",not";
-echo "<br>";
-echo $data;
-echo "<br>";
-
-//カンマ区切りで配列に格納
-$array = explode(',', $data);
-
-print_r($array);
-
-//ここをいじる
-$path = __DIR__.'/csvData/';
-echo $path;
-echo "<br";
-$content = $data."\n";
-if( is_writable($path)){
+    //課題データ(テキスト)を保存するためのテキストファイルを作成＋追記する
+    $path = __DIR__.'/csvData/';
+    $dir = 'data.txt';
+    //ここの改行コードは検討
+    $content = $data."\n";
+    if( is_writable($path)){
+        if(file_exists($dir)){
+            $file_handle = fopen($path."data.txt","a");
+            fputs($file_handle, $content);
+        }else{
+            $file_handle = fopen($path."data.txt","w");
+            fputs($file_handle, $content);
+        }
+        fclose($file_handle);
     
-    $file_handle = fopen($path."data.txt","w");
-    fwrite($file_handle, $content);
-    
-    fclose($file_handle);
-    
+    }
 }
 
 //LINE APIのプログラムを実行させてみる
