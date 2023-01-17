@@ -11,10 +11,10 @@ $read = file_get_contents($fp);
 $list = explode(",",$read );
 //配列の中身を表示
 var_dump($list);
-
+echo "<br>";
 //listの末尾要素以外にそれぞれファイル名が格納されている
 
-for($num = 0; $num < count($list);$num++){
+for($num = 0; $num < count($list)-1;$num++){
     $csvname = '/'.$list[$num];
     $dlroot = $dlpath.$csvname;
 
@@ -25,8 +25,8 @@ for($num = 0; $num < count($list);$num++){
     echo "<br>";
 
     //カンマ区切りで配列に格納
- //   $array = explode(',', $data);
- //   print_r($array);
+    $array = explode(',', $data);
+    print_r($array);
 
     //課題データ(テキスト)を保存するためのテキストファイルを作成＋追記する
     $path = __DIR__.'/csvData/';
