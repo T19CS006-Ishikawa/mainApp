@@ -16,6 +16,8 @@
 //＿＿＿＿＿＿mainApp＿mainApp＿mainApp＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿
 //ダウンロード元のURL
 $dlpath = 'https://file-upload-app.herokuapp.com/upfile';
+//プッシュメッセージを送るためのパス
+$push_path ='https://app-for-lms.herokuapp.com/pushMessage.php';
 
 $fp = "mainList.txt";
 
@@ -32,7 +34,7 @@ for($num = 0; $num < count($list)-1;$num++){
     $csvname = '/'.$list[$num];
     $dlroot = $dlpath.$csvname;
 
-    //ダウンロード元からCSVファイルの中身を取得
+    //ダウンロード元からCSVファイルの中身を取得(配列)
     $data = file_get_contents($dlroot);
     //中身のテキストからダブルクォーテーションを除去
     $data = str_replace('"', '', $data);
@@ -48,8 +50,15 @@ for($num = 0; $num < count($list)-1;$num++){
     //課題データ(テキスト)を保存するためのテキストファイルを作成＋追記する
     $path = __DIR__.'/csvData/';
     $dir = 'data.txt';
-    //ここの改行コードは検討
-    $content = $data."\n";
+    
+    //送信する文章を編集
+    if($data[0]== "work"){
+    $sentense = "新しい課題です。"."\n"."科目：".$data[1]."\n"."課題名".$data[3]."\n"."期限：".$data[2];
+    }else{
+        $sentense = "試験の日程が登録されました。"."\n"."科目：".$data[2]."\n"."日程".$data[1];
+    }
+
+    $content = $sentense;
     if( is_writable($path)){
         if(file_exists($dir)){
             $file_handle = fopen($path."data.txt","a");
@@ -61,10 +70,14 @@ for($num = 0; $num < count($list)-1;$num++){
         fclose($file_handle);
     
     }
+    //プッシュメッセージ送信
+    file_get_contents($push_path);
+    //送信ステータスを変更(send)にする
+    $data[4] = "send";
+    
 }
 
-$push ='https://app-for-lms.herokuapp.com/pushMessage.php';
-file_get_contents($push);
+
 
 /*＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿*/
 
