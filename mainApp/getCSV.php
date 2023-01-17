@@ -8,7 +8,7 @@ $fp = "mainList.txt";
 
 $read = file_get_contents($fp);
 //$list = file($read);
-$list = explode("|",$read );
+$list = explode(",",$read );
 var_dump($list);
 
 //list[0] = csvファイル名になる
