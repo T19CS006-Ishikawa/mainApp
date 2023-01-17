@@ -63,14 +63,26 @@ for($num = 0; $num < count($list)-1;$num++){
     }
 
     $content = $sentense;
-    
+
+    //送信用のテキストファイル、なぜか"a"だとうまくいくので
         if(file_exists($path.$dir)){
-            $file_handle = fopen($path."data.txt",'a');
+            $file_handle = fopen($path."push.txt","a");
             fputs($file_handle, $content);
         }else{
-            $file_handle = fopen($path."data.txt",'w');
+            $file_handle = fopen($path."push.txt",'w');
             fputs($file_handle, $content);
         }
+        
+        
+        //保存用のテキストファイル、'|'を区切り文字として追記
+        if(file_exists($path.$dir)){
+            $file_handle = fopen($path."data.txt".'|','a');
+            fputs($file_handle, $content);
+        }else{
+            $file_handle = fopen($path."data.txt".'|','w');
+            fputs($file_handle, $content);
+        }
+        
     
     fclose($file_handle);
     
