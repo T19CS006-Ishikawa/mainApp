@@ -64,14 +64,10 @@ for($num = 0; $num < count($list)-1;$num++){
 
     $content = $sentense;
 
-    //送信用のテキストファイル、なぜか"a"だとうまくいくので
-        if(file_exists($path.$dir)){
-            $file_handle = fopen($path."push.txt","a");
-            fputs($file_handle, $content);
-        }else{
+    //送信用のテキストファイル
             $file_handle = fopen($path."push.txt",'w');
             fputs($file_handle, $content);
-        }
+        
         
         
         //保存用のテキストファイル、'|'を区切り文字として追記
