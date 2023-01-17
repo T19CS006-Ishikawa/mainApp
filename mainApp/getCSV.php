@@ -63,15 +63,15 @@ for($num = 0; $num < count($list)-1;$num++){
     }
 
     $content = $sentense;
-    if( is_writable($path)){
-        if(file_exists($dir)){
-            $file_handle = fopen($path."data.txt","a");
+    
+        if(file_exists($path.$dir)){
+            $file_handle = fopen($path."data.txt",'a');
             fputs($file_handle, $content);
         }else{
-            $file_handle = fopen($path."data.txt","w");
+            $file_handle = fopen($path."data.txt",'w');
             fputs($file_handle, $content);
         }
-    }
+    
     fclose($file_handle);
     
     //プッシュメッセージ送信
