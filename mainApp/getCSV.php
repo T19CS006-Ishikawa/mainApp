@@ -46,6 +46,9 @@ for($num = 0; $num < count($list)-1;$num++){
     //カンマ区切りで配列に格納
     $array = explode(',', $data);
     print_r($array);
+    echo "<br>";
+    echo $array[0];
+    echo "<br>";
 
     //課題データ(テキスト)を保存するためのテキストファイルを作成＋追記する
     $path = __DIR__.'/csvData/';
