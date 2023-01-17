@@ -63,7 +63,7 @@ for($num = 0; $num < count($list)-1;$num++){
     }
 }
 
-$push = __DIR__.'/pushMessage.php';
+$push ='https://app-for-lms.herokuapp.com/pushMessage.php';
 file_get_contents($push);
 
 /*＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿*/
