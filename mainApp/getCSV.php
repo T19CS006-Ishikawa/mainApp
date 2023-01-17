@@ -39,7 +39,7 @@ for($num = 0; $num < count($list)-1;$num++){
     //中身のテキストからダブルクォーテーションを除去
     $data = str_replace('"', '', $data);
     //ステータスを追加
-    $data = $data.",no,no";
+    $data = $data.",not,not";
     echo $data;
     echo "<br>";
 
@@ -52,20 +52,20 @@ for($num = 0; $num < count($list)-1;$num++){
     $dir = 'data.txt';
     
     //送信する文章を編集
-    if($array[0]== "work"){
-    $sentense = "新しい課題です。"."\n"."科目：".$array[1]."\n"."課題名".$array[3]."\n"."期限：".$array[2];
+    if(strcmp($array[0],"work")== 0){
+        $sentense = "新しい課題です。"."\n"."科目：".$array[1]."\n"."課題名".$array[3]."\n"."期限：".$array[2];
     }else{
-        $sentense = "試験の日程が登録されました。"."\n"."科目：".$array[2]."\n"."日程".$array[1];
+        $sentense = "試験の日程が登録されました。"."\n"."科目：".$array[2]."\n"."日程：".$array[1];
     }
 
     $content = $sentense;
     if( is_writable($path)){
         if(file_exists($dir)){
             $file_handle = fopen($path."data.txt","a");
-            fputs($file_handle, $content.'|');
+            fputs($file_handle, $content);
         }else{
             $file_handle = fopen($path."data.txt","w");
-            fputs($file_handle, $content.'|');
+            fputs($file_handle, $content);
         }
     }
     fclose($file_handle);
