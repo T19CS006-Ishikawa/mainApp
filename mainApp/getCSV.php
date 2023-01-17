@@ -56,7 +56,7 @@ for($num = 0; $num < count($list)-1;$num++){
     
     //送信する文章を編集
     $word = "work";
-    if($array[0]== $word){
+    if(in_array($word, $array)){
         $sentense = "新しい課題です。"."\n"."科目：".$array[1]."\n"."課題名".$array[3]."\n"."期限：".$array[2];
     }else{
         $sentense = "試験の日程が登録されました。"."\n"."科目：".$array[2]."\n"."日程：".$array[1];
