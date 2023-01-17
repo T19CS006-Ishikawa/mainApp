@@ -49,7 +49,7 @@ for($num = 0; $num < count($list)-1;$num++){
     }
 }
 
-$push = './pushMessage.php';
+$push = __DIR__.'/pushMessage.php';
 file_get_contents($push);
 
 /*＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿*/
