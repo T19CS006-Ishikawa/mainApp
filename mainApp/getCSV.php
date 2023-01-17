@@ -52,7 +52,7 @@ for($num = 0; $num < count($list)-1;$num++){
     $dir = 'data.txt';
     
     //送信する文章を編集
-    if($data[0]== "work"){
+    if($array[0]== "work"){
     $sentense = "新しい課題です。"."\n"."科目：".$array[1]."\n"."課題名".$array[3]."\n"."期限：".$array[2];
     }else{
         $sentense = "試験の日程が登録されました。"."\n"."科目：".$array[2]."\n"."日程".$array[1];
@@ -62,14 +62,14 @@ for($num = 0; $num < count($list)-1;$num++){
     if( is_writable($path)){
         if(file_exists($dir)){
             $file_handle = fopen($path."data.txt","a");
-            fputs($file_handle, $content);
+            fputs($file_handle, $content.'|');
         }else{
             $file_handle = fopen($path."data.txt","w");
-            fputs($file_handle, $content);
+            fputs($file_handle, $content.'|');
         }
-        fclose($file_handle);
-    
     }
+    fclose($file_handle);
+    
     //プッシュメッセージ送信
     file_get_contents($push_path);
     //送信ステータスを変更(send)にする
