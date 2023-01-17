@@ -40,8 +40,8 @@ for($num = 0; $num < count($list)-1;$num++){
     $data = str_replace('"', '', $data);
     //ステータスを追加
     $data = $data.",not,not";
-    echo $data;
-    echo "<br>";
+   // echo $data;
+   // echo "<br>";
 
     //カンマ区切りで配列に格納
     $array = explode(',', $data);

@@ -1,7 +1,7 @@
 <?php
 
-$list = file_get_contents('./csvData/data.txt');
-//echo  $list;
-var_dump($list);
+$print = fopen("./csvData/data.txt","r");
+$name = fgets($print);
+echo $name;
 
 ?>
