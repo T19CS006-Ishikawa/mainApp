@@ -39,8 +39,8 @@ print_r($array);
 //ここをいじる
 $path = __DIR__.'/csvData/';
 echo $path;
-echo "<br>";
-$content = $data."<br>";
+echo "<br";
+$content = $data."\n";
 if( is_writable($path)){
     
     $file_handle = fopen($path."data.txt","w");
@@ -50,6 +50,9 @@ if( is_writable($path)){
     
 }
 
+//LINE APIのプログラムを実行させてみる
+$LINE_path = 'https://line-bot-tester01.herokuapp.com/pushMessage.php';
+file_get_contents($filename);
 
 
 /*＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿*/
