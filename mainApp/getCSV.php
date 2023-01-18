@@ -52,7 +52,6 @@ for($num = 0; $num < count($list)-1;$num++){
 
     //課題データ(テキスト)を保存するためのテキストファイルを作成＋追記する
     $path = __DIR__.'/csvData/';
-    $dir = 'push.txt';
     $data_dir = 'data.txt';
     
     //送信する文章を編集
@@ -83,7 +82,9 @@ for($num = 0; $num < count($list)-1;$num++){
     fclose($file_handle);
     
     //プッシュメッセージ送信
+    if($array[4] == "not"){
     file_get_contents($push_path);
+    }
     //送信ステータスを変更(sendに)する
     $array[4] = "send";
     
