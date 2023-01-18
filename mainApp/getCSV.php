@@ -117,7 +117,11 @@ for($num = 0; $num < count($list)-1;$num++){
     echo "done 8"."<br>";
     $file_data = $get_status[0].','.$get_status[1].','.$get_status[2];
     echo "done 9"."<br>";
-    $file_handle = fopen($status_path[$num],'w');
+    
+    $_path = substr($status_path[$num],33);
+    $edit_path = __DIR__.$_path;
+    echo $edit_path."<br>";
+    $file_handle = fopen($edit_path,'w');
     fputs($file_handle,$file_data);
     fclose($file_handle);
     echo "done 10 "."<br>";
