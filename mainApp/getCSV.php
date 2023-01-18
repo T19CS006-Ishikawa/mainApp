@@ -114,11 +114,16 @@ for($num = 0; $num < count($list)-1;$num++){
     $get_status[1] = "send";
     
     //ステータスを反映させるために上書き
+    echo "done 8"."<br>";
     $file_data = $get_status[0].','.$get_status[1].','.$get_status[2];
+    echo "done 9"."<br>";
     $file_handle = fopen($status_path[$num],'w');
     fputs($file_handle,$file_data);
     fclose($file_handle);
+    echo "done 10 "."<br>";
+    
     }
+    echo "done 11"."<br>";
 }
 
 
