@@ -31,7 +31,7 @@ for($num = 0; $num < $length ; $num++){
 
 for($num = 0; $num < count($list)-1;$num++){
     //for($int = 0; $int < $count; $int++)
-    if($name[$num].'txt' == $textfile_name[1]){
+    if($name[$num].$status == $textfile_name[1]){
         echo "success";
     }
         
