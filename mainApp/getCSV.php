@@ -28,7 +28,7 @@ echo "done 1 "."<br>";
 
 //各ファイルに対してstatus.txt１つを対応させているため、ループで各テキストファイルを呼び出し、中身を配列に格納する＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿1/18
 for($num = 0; $num < count($list)-1;$num++){
-    $status_path[$num] = __DIR__.'/csvData/'.$list[$num].'_status.txt';  
+    $status_path[$num] = 'https://app-for-lms.herokuapp.com/csvData/'.$list[$num].'_status.txt';  
     echo $status_path[$num];
     echo "<br>";
     //status_readの配列各要素にはファイル名とステータスのセットが入っている
