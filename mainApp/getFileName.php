@@ -15,13 +15,11 @@ $read = file_get_contents($fp);
 $list = explode(",",$read );
 
 for($num = 0; $num < count($list)-1;$num++){
-    echo "done 1";
-    $length = strlen($list[$num]);
-    echo $length;
-    $list[$num] = mb_substr($list[$num],$length - 4);
-    echo "done 3";
+    $name_array = explode('.', $list[$num]);
+    $name[$num] = $name_array[0];
 }
-var_dump($list);
+
+var_dump($name);
 
 for($num = 0; $num < count($list)-1;$num++){
     //ファイル名にステータスを追加
