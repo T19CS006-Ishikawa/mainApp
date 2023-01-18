@@ -23,13 +23,15 @@ $fp = "mainList.txt";
 
 $read = file_get_contents($fp);
 
-//カンマを区切り文字としてファイル名をそれぞれ配列に格納する
-$list = explode(",",$read );
+//カンマを区切り文字としてファイル名+ステータスをそれぞれ配列に格納する
+$list = explode("|",$read );
+$one = explode(",",$list);
+
+
 //配列の中身を表示
 var_dump($list);
 echo "<br>";
 //listの末尾要素以外にそれぞれファイル名が格納されている
-
 for($num = 0; $num < count($list)-1;$num++){
     $csvname = '/'.$list[$num];
     $dlroot = $dlpath.$csvname;
