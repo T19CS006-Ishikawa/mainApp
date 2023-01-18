@@ -11,7 +11,6 @@ $handle =  fopen($fp,"w");
 fclose($handle);
 //mainListの内容(ファイル名すべて)を取得
 $read = file_get_contents($fp);
-
 //ファイル名をカンマ区切りでそれぞれ配列listにいれる　
 $list = explode(",",$read );
 var_dump($list);
@@ -40,7 +39,7 @@ for($num = 0; $num < count($list)-1;$num++){
     
     fclose($handle);
 }
-
+echo "done";
 var_dump($list);
 
 ?>
