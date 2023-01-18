@@ -40,14 +40,18 @@ for($num = 0; $num < count($list)-1;$num++){
     $status_path = $path.$name[$num].$status;
     
     
-        if(strcmp($status_path,$textfile_array[1]) == 0){
-            echo  "succsess";
-        }
+   // if(strcmp($status_path,$textfile_array[1]) == 0){
+   //        continue;
+   //   }
+   
+    if(in_array($status_path, $textfile_array)){
+        echo "found";
+    }
         
-            $handle = fopen($status_path,'w');
-            fputs($handle, $list_status[$num]);     
+       $handle = fopen($status_path,'w');
+        fputs($handle, $list_status[$num]);     
     
-            fclose($handle);
+        fclose($handle);
          
 
 }
