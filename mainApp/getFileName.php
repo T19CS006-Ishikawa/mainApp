@@ -28,8 +28,6 @@ for($num = 0; $num < count($list)-1;$num++){
     //ステータスを追加したものを新たに保存、ここでファイル名ごとにテキストファイルを作成する
     
     $status_path = $path.$name[$num].$status;//ここで止まっている
-    echo "<br>";
-    echo $status_path;
     $handle = fopen($status_path,'w');
     fputs($handle, $list_status[$num]);
     
