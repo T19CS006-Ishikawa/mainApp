@@ -117,7 +117,7 @@ for($num = 0; $num < count($list)-1;$num++){
     $file_data = $get_status[0].','.$get_status[1].','.$get_status;
     $file_handle = fopen($status_path[$num],'w');
     fputs($file_handle,$file_data);
-    
+    fclose($file_handle);
     }
 }
 
