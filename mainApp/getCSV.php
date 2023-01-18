@@ -66,6 +66,8 @@ for($num = 0; $num < count($list)-1;$num++){
     //ファイル名をもとに対応するテキストファイルを呼び出し、中身を見る＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿
     $textfile = $status_path[$num];
     $check = file_get_contents($textfile);
+    echo $check;
+    echo "<br>";
     $get_status = explode($check, ',');
     var_dump($get_status);
     echo "done 5 "."<br>";
