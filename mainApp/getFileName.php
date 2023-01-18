@@ -22,8 +22,19 @@ for($num = 0; $num < count($list)-1;$num++){
     $name[$num] = $name_array[0];
 }
 
+//現時点でのテキストファイルの一覧を取得
+$textfile_array = glob('./csvData/*.txt');
+$length = count($textfile_array);
+for($num = 0; $num < $length ; $num++){
+    $textfile_name[$num] =  substr($textfile_array[$num],9);
+}
 
 for($num = 0; $num < count($list)-1;$num++){
+    //for($int = 0; $int < $count; $int++)
+    if($name[$num].'txt' == $textfile_name[1]){
+        echo "success";
+    }
+        
     //ファイル名にステータスを追加
     $list_status[$num]= $name[$num].",not,not";
     echo $list_status[$num];
@@ -36,6 +47,7 @@ for($num = 0; $num < count($list)-1;$num++){
 
     
     fclose($handle);
+
 }
 
 ?>
