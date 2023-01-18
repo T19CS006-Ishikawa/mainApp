@@ -24,8 +24,6 @@ for($num = 0; $num < count($list)-1;$num++){
 
 //現時点でのテキストファイルの一覧を取得
 $textfile_array = glob('./csvData/*.txt');
-$length = count($textfile_array);
-
 
 for($num = 0; $num < count($list)-1;$num++){
     //for($int = 0; $int < $count; $int++)
@@ -38,14 +36,10 @@ for($num = 0; $num < count($list)-1;$num++){
     
     //ステータスを追加したものを新たに保存、ここでファイル名ごとにテキストファイルを作成する
     $status_path = $path.$name[$num].$status;
-    
-    
-   // if(strcmp($status_path,$textfile_array[1]) == 0){
-   //        continue;
-   //   }
+
    
     if(in_array($status_path, $textfile_array)){
-        echo "found";
+        continue;
     }
         
        $handle = fopen($status_path,'w');
