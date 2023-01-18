@@ -4,7 +4,7 @@
 //$print = file_get_contents($filename);
 //echo $print;
 
-$read =  glob(__DIR__.'/csvData/*');
+$read =  glob(__DIR__.'/csvData/*.txt');
 var_dump($read);
 
 ?>
