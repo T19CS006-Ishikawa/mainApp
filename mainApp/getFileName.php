@@ -41,7 +41,7 @@ for($num = 0; $num < count($list)-1;$num++){
     
     //ステータスを追加したものを新たに保存、ここでファイル名ごとにテキストファイルを作成する
     $status_path = $path.$name[$num].$status;
-    if(strsmp($status_path,$textfile_array[1])==0){
+    if(strcmp($status_path,$textfile_array[1])==0){
         echo "success";
     }
     
