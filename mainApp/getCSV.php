@@ -31,10 +31,9 @@ for($num = 0; $num < count($list)-1;$num++){
     $status_path[$num] = __DIR__.'/csvData/'.$list[$num].'_status.txt';  
     //status_readの配列各要素にはファイル名とステータスのセットが入っている
     $status_read[$num] = file_get_contents($status_path[$num]);
-    echo $status_read[$num];
-    echo "<br>";
 }
-
+var_dump($status_read);
+echo "<br>";
 echo "done 2 "."<br>";
 //各要素をさらにカンマを区切り文字として新しく配列に=>これをループ内にいれて処理
 //$one = explode(',',$list);
