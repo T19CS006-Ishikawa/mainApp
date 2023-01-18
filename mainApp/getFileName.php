@@ -13,11 +13,16 @@ fclose($handle);
 $read = file_get_contents($fp);
 //ファイル名をカンマ区切りでそれぞれ配列listにいれる　
 $list = explode(",",$read );
+for($num = 0; $num < count($list)-1;$num++){
+    $length = strlen($list[$num]);
+    
+    $list[$num] = mb_substr($list[$num],$length - 4);
+}
 var_dump($list);
 
 for($num = 0; $num < count($list)-1;$num++){
     //ファイル名にステータスを追加
-    $list_status[$num]= $list[$num]."not,not";
+    $list_status[$num]= $list[$num].",not,not";
     var_dump($list_status);
 //＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿ここまでは実行されている
     //ステータスを追加したものを新たに保存、ここでファイル名ごとにテキストファイルを作成する
