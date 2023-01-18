@@ -33,18 +33,7 @@ for($num = 0; $num < count($list)-1;$num++){
     $status_path = $path.$name[$num].$status;
     $handle = fopen($status_path,'w');
     fputs($handle, $list_status[$num]);
-    
-    //ステータスを追加したものを新たにテキストファイルstatus.txtに保存
-    /*
-    if(file_exists($path.$fp)){
-        $file_handle = fopen($path.$status,'a');//'a'は追記オプション
-        fputs($file_handle, $list[$num]);
-    }else{
-        $file_handle = fopen($path.$status,'w');//'w'は新規作成もしくは上書きオプション(ここでは新規作成のみ)
-        fputs($file_handle, $list[$num]);
-    }
-    fclose($file_handle);
-    */
+
     
     fclose($handle);
 }
