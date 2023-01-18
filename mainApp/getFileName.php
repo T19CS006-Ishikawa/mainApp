@@ -13,10 +13,12 @@ fclose($handle);
 $read = file_get_contents($fp);
 //ファイル名をカンマ区切りでそれぞれ配列listにいれる　
 $list = explode(",",$read );
+
 for($num = 0; $num < count($list)-1;$num++){
+    echo "done 1";
     $length = strlen($list[$num]);
-    
     $list[$num] = mb_substr($list[$num],$length - 4);
+    echo "done2";
 }
 var_dump($list);
 
