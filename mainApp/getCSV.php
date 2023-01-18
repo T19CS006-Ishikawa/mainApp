@@ -27,13 +27,15 @@ $list =  explode(',',$read);
 
 //各ファイルに対してstatus.txt１つを対応させているため、ループで各テキストファイルを呼び出し、中身を配列に格納する＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿1/18
 for($num = 0; $num < count($list)-1;$num++){
-    $status_path = './csvData/'.$list[$num].'_status.txt';  
+    $status_path[$num] = __DIR__.'/csvData/'.$list[$num].'_status.txt';  
     //status_readの配列各要素にはファイル名とステータスのセットが入っている
-    $status_read[$num] = file_get_contents($status_path);
+    $status_read[$num] = file_get_contents($status_path[$num]);
+    echo $status_read[$num];
+    echo "<br>";
 }
 
 //各要素をさらにカンマを区切り文字として新しく配列に=>これをループ内にいれて処理
-$one = explode(',',$list);
+//$one = explode(',',$list);
 
 
 //配列の中身を表示
@@ -45,16 +47,23 @@ echo "<br>";
 for($num = 0; $num < count($list)-1;$num++){
     $csvname = '/'.$list[$num];
     $dlroot = $dlpath.$csvname;
-
+    
     //ダウンロード元からCSVファイルの中身を取得(配列)
     $data = file_get_contents($dlroot);
     //中身のテキストからダブルクォーテーションを除去
     $data = str_replace('"', '', $data);
     //ステータスを追加
-    $data = $data.",not,not";
+    //$data = $data.",not,not";
    // echo $data;
    // echo "<br>";
-
+   
+    //ファイル名をもとに対応するテキストファイルを呼び出し、中身を見る＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿
+    $textfile = $status_path[$num];
+    $check = file_get_contents($textfile);
+    $get_status = explode($check, ',');
+    var_dump($get_status);
+    
+    if($get_status[1] == "not"){
     //カンマ区切りで配列に格納
     $array = explode(',', $data);
     print_r($array);
@@ -67,7 +76,7 @@ for($num = 0; $num < count($list)-1;$num++){
     $data_dir = 'data.txt';
     
     //送信する文章を編集
-    if(count($array) == 6){
+    if(count($array[0]) == "work"){
         $sentense = "新しい課題です。"."\n"."科目：".$array[2]."\n"."課題名：".$array[3]."\n"."期限：".$array[1];
     }else{
         $sentense = "試験の日程が登録されました。"."\n"."科目：".$array[2]."\n"."日程：".$array[1];
@@ -94,12 +103,17 @@ for($num = 0; $num < count($list)-1;$num++){
     fclose($file_handle);
     
     //プッシュメッセージ送信
-    if($array[4] == "not"){
     file_get_contents($push_path);
-    }
-    //送信ステータスを変更(sendに)する
-    $array[4] = "send";
     
+    //送信ステータスを変更(sendに)する
+    $get_status[1] = "send";
+    
+    //ステータスを反映させるために上書き
+    $file_data = $get_status[0].','.$get_status[1].','.$get_status;
+    $file_handle = fopen($status_path[$num],'w');
+    fputs($file_handle,$file_data);
+    
+    }
 }
 
 
