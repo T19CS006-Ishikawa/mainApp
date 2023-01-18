@@ -47,7 +47,5 @@ for($num = 0; $num < count($list)-1;$num++){
     
     fclose($handle);
 }
-echo "done";
-var_dump($list);
 
 ?>
