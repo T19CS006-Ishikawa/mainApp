@@ -40,7 +40,7 @@ for($num = 0; $num < count($list)-1;$num++){
     $status_path = $path.$name[$num].$status;
     
     
-        if(strcmp($status_path,$textfile_array[1])!=0){
+        if(strcmp($status_path,$textfile_array[1]) == 0){
             echo  "succsess";
         }
         
