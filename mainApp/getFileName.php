@@ -19,7 +19,6 @@ for($num = 0; $num < count($list)-1;$num++){
     $name[$num] = $name_array[0];
 }
 
-var_dump($name);
 
 for($num = 0; $num < count($list)-1;$num++){
     //ファイル名にステータスを追加
@@ -27,7 +26,7 @@ for($num = 0; $num < count($list)-1;$num++){
     var_dump($list_status);
 //＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿ここまでは実行されている
     //ステータスを追加したものを新たに保存、ここでファイル名ごとにテキストファイルを作成する
-    $status_path = $path.$list[num].$status;//ここで止まっている
+    $status_path = $path.$name[num].$status;//ここで止まっている
     echo "<br>";
     echo $status_path;
     $handle = fopen($status_path,'w');
