@@ -39,6 +39,8 @@ $one = explode(',',$list);
 //配列の中身を表示
 var_dump($list);
 echo "<br>";
+
+
 //listの末尾要素以外にそれぞれファイル名が格納されている
 for($num = 0; $num < count($list)-1;$num++){
     $csvname = '/'.$list[$num];
