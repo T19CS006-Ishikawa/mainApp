@@ -24,10 +24,12 @@ $fp = "mainList.txt";
 $read = file_get_contents($fp);
 //ファイル名を配列にそれぞれ保存
 $list =  explode(',',$read);
+
 echo "done 1 "."<br>";
 
 //各ファイルに対してstatus.txt１つを対応させているため、ループで各テキストファイルを呼び出し、中身を配列に格納する＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿1/18
 for($num = 0; $num < count($list)-1;$num++){
+    $list[$num] = substr($list[$num],strlen($list[$num])-4);
     $status_path[$num] = 'https://app-for-lms.herokuapp.com/csvData/'.$list[$num].'_status.txt';  
     echo $status_path[$num];
     echo "<br>";
