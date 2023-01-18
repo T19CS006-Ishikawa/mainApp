@@ -5,21 +5,25 @@ echo $c;
 $fp = "mainList.txt";
 $status = "_status.txt";
 $path = "./csvData/";
-//mainApp内にtxtを実質コピーする
+//mainList内にtxtを実質コピーする
 $handle =  fopen($fp,"w");
     fputs($handle,$c);
 fclose($handle);
-
+//mainListの内容(ファイル名すべて)を取得
 $read = file_get_contents($fp);
 
-//ファイル名をそれぞれ配列にいれる　
+//ファイル名をカンマ区切りでそれぞれ配列listにいれる　
 $list = explode(",",$read );
+var_dump($list);
 for($num = 0; $num < count($list)-1;$num++){
     //ファイル名にステータスを追加
     $list_status[$num]= $list[$num]."not,not";
     
     //ステータスを追加したものを新たに保存、ここでファイル名ごとにテキストファイルを作成する
-    $handle = fopen($path.$list[$num].$status,'w');
+    $status_path = $path.$list[num].$status;
+    echo "<br>";
+    echo $status_path;
+    $handle = fopen($status_path,'w');
     fputs($handle, $list_status[num]);
     
     //ステータスを追加したものを新たにテキストファイルstatus.txtに保存
