@@ -22,15 +22,16 @@ for($num = 0; $num < count($list)-1;$num++){
 
 for($num = 0; $num < count($list)-1;$num++){
     //ファイル名にステータスを追加
-    $list_status[$num]= $list[$num].",not,not";
+    $list_status[$num]= $name[$num].",not,not";
     var_dump($list_status);
 //＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿ここまでは実行されている
     //ステータスを追加したものを新たに保存、ここでファイル名ごとにテキストファイルを作成する
-    $status_path = $path.$name[num].$status;//ここで止まっている
+    
+    $status_path = $path.$name[$num].$status;//ここで止まっている
     echo "<br>";
     echo $status_path;
     $handle = fopen($status_path,'w');
-    fputs($handle, $list_status[num]);
+    fputs($handle, $list_status[$num]);
     
     //ステータスを追加したものを新たにテキストファイルstatus.txtに保存
     /*
