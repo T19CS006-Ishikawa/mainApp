@@ -24,6 +24,7 @@ $fp = "mainList.txt";
 $read = file_get_contents($fp);
 //ファイル名を配列にそれぞれ保存
 $list =  explode(',',$read);
+echo "done 1 "."<br>";
 
 //各ファイルに対してstatus.txt１つを対応させているため、ループで各テキストファイルを呼び出し、中身を配列に格納する＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿1/18
 for($num = 0; $num < count($list)-1;$num++){
@@ -34,6 +35,7 @@ for($num = 0; $num < count($list)-1;$num++){
     echo "<br>";
 }
 
+echo "done 2 "."<br>";
 //各要素をさらにカンマを区切り文字として新しく配列に=>これをループ内にいれて処理
 //$one = explode(',',$list);
 
@@ -47,7 +49,8 @@ echo "<br>";
 for($num = 0; $num < count($list)-1;$num++){
     $csvname = '/'.$list[$num];
     $dlroot = $dlpath.$csvname;
-    
+ 
+    echo "done 3 "."<br>";
     //ダウンロード元からCSVファイルの中身を取得(配列)
     $data = file_get_contents($dlroot);
     //中身のテキストからダブルクォーテーションを除去
@@ -56,13 +59,13 @@ for($num = 0; $num < count($list)-1;$num++){
     //$data = $data.",not,not";
    // echo $data;
    // echo "<br>";
-   
+    echo "done 4 "."<br>";
     //ファイル名をもとに対応するテキストファイルを呼び出し、中身を見る＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿
     $textfile = $status_path[$num];
     $check = file_get_contents($textfile);
     $get_status = explode($check, ',');
     var_dump($get_status);
-    
+    echo "done 5 "."<br>";
     if($get_status[1] == "not"){
     //カンマ区切りで配列に格納
     $array = explode(',', $data);
@@ -70,11 +73,13 @@ for($num = 0; $num < count($list)-1;$num++){
     echo "<br>";
     echo $array[0];
     echo "<br>";
-
+    
+    echo "done 6 "."<br>";
     //課題データ(テキスト)を保存するためのテキストファイルを作成＋追記する
     $path = __DIR__.'/csvData/';
     $data_dir = 'data.txt';
     
+    echo "done 7"."<br>";
     //送信する文章を編集
     if(count($array[0]) == "work"){
         $sentense = "新しい課題です。"."\n"."科目：".$array[2]."\n"."課題名：".$array[3]."\n"."期限：".$array[1];
