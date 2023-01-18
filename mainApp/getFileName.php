@@ -26,9 +26,6 @@ for($num = 0; $num < count($list)-1;$num++){
 $textfile_array = glob('./csvData/*.txt');
 $length = count($textfile_array);
 
-//for($num = 0; $num < $length ; $num++){
-//    $textfile_name[$num] =  substr($textfile_array[$num],9);
-//}
 
 for($num = 0; $num < count($list)-1;$num++){
     //for($int = 0; $int < $count; $int++)
@@ -41,15 +38,16 @@ for($num = 0; $num < count($list)-1;$num++){
     
     //ステータスを追加したものを新たに保存、ここでファイル名ごとにテキストファイルを作成する
     $status_path = $path.$name[$num].$status;
-    if(strcmp($status_path,$textfile_array[1])==0){
-        echo "success";
+    
+    for($int = 0;$int < $length ; $int++){
+        if(strcmp($status_path,$textfile_array[$int])!=0){
+        
+            $handle = fopen($status_path,'w');
+            fputs($handle, $list_status[$num]);     
+    
+            fclose($handle);
+         }
     }
-    
-    $handle = fopen($status_path,'w');
-    fputs($handle, $list_status[$num]);
-
-    
-    fclose($handle);
 
 }
 
