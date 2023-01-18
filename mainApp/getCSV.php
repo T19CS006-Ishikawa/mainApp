@@ -25,25 +25,20 @@ $read = file_get_contents($fp);
 //ファイル名を配列にそれぞれ保存
 $list =  explode(',',$read);
 
-echo "done 1 "."<br>";
-
 //各ファイルに対してstatus.txt１つを対応させているため、ループで各テキストファイルを呼び出し、中身を配列に格納する＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿1/18
 for($num = 0; $num < count($list)-1;$num++){
     $list[$num] = substr($list[$num],0,strlen($list[$num])-4);
     $status_path[$num] = 'https://app-for-lms.herokuapp.com/csvData/'.$list[$num].'_status.txt';  
     echo $status_path[$num];
     echo "<br>";
-    //status_readの配列各要素にはファイル名とステータスのセットが入っている
+    //status_readの配列各要素にはファイル名とステータスのセットが入っている ok
     $status_read[$num] = file_get_contents($status_path[$num]);
 }
 var_dump($status_read);
 echo "<br>";
 echo "done 2 "."<br>";
-//各要素をさらにカンマを区切り文字として新しく配列に=>これをループ内にいれて処理
-//$one = explode(',',$list);
 
-
-//配列の中身を表示
+//配列の中身を表示 ok
 var_dump($list);
 echo "<br>";
 
@@ -56,21 +51,21 @@ for($num = 0; $num < count($list)-1;$num++){
     echo "done 3 "."<br>";
     //ダウンロード元からCSVファイルの中身を取得(配列)
     $data = file_get_contents($dlroot);
+    echo $data."<br>";
     //中身のテキストからダブルクォーテーションを除去
     $data = str_replace('"', '', $data);
-    //ステータスを追加
-    //$data = $data.",not,not";
-   // echo $data;
-   // echo "<br>";
+
     echo "done 4 "."<br>";
-    //ファイル名をもとに対応するテキストファイルを呼び出し、中身を見る＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿
+    //ファイル名をもとに対応するテキストファイルを呼び出し、中身を見る＿＿＿＿＿＿＿＿＿＿
     $textfile = $status_path[$num];
     $check = file_get_contents($textfile);
     echo $check;
     echo "<br>";
     $get_status = explode(',',$check);
     var_dump($get_status);
-    echo "done 5 "."<br>";
+    
+    echo "<br>"."done 5 "."<br>";
+    
     if($get_status[1] == "not"){
     //カンマ区切りで配列に格納
     $array = explode(',', $data);
