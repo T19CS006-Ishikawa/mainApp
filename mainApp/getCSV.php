@@ -13,19 +13,27 @@
 
 
 <?php 
-//＿＿＿＿＿＿mainApp＿mainApp＿mainApp＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿
+//＿＿＿＿＿＿mainApp＿mainApp＿mainApp＿＿＿＿＿＿＿＿＿＿＿＿＿＿
 //ダウンロード元のURL
 $dlpath = 'https://file-upload-app.herokuapp.com/upfile';
 //プッシュメッセージを送るためのパス
 $push_path ='https://app-for-lms.herokuapp.com/pushMessage.php';
 
+//mainListからファイル名の一覧を取得
 $fp = "mainList.txt";
-
 $read = file_get_contents($fp);
+//ファイル名を配列にそれぞれ保存
+$list =  explode(',',$read);
 
-//カンマを区切り文字としてファイル名+ステータスをそれぞれ配列に格納する
-$list = explode("|",$read );
-$one = explode(",",$list);
+//各ファイルに対してstatus.txt１つを対応させているため、ループで各テキストファイルを呼び出し、中身を配列に格納する＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿1/18
+for($num = 0; $num < count($list)-1;$num++){
+    $status_path = './csvData/'.$list[$num].'_status.txt';  
+    //status_readの配列各要素にはファイル名とステータスのセットが入っている
+    $status_read[$num] = file_get_contents($status_path);
+}
+
+//各要素をさらにカンマを区切り文字として新しく配列に=>これをループ内にいれて処理
+$one = explode(',',$list);
 
 
 //配列の中身を表示
