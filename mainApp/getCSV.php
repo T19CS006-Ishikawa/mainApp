@@ -68,7 +68,7 @@ for($num = 0; $num < count($list)-1;$num++){
     $check = file_get_contents($textfile);
     echo $check;
     echo "<br>";
-    $get_status = explode($check, ',');
+    $get_status = explode(',',$check);
     var_dump($get_status);
     echo "done 5 "."<br>";
     if($get_status[1] == "not"){
