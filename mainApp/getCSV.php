@@ -27,8 +27,8 @@ $list =  explode(',',$read);
 
 //各ファイルに対してstatus.txt１つを対応させているため、ループで各テキストファイルを呼び出し、中身を配列に格納する＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿1/18
 for($num = 0; $num < count($list)-1;$num++){
-    $list[$num] = substr($list[$num],0,strlen($list[$num])-4);
-    $status_path[$num] = 'https://app-for-lms.herokuapp.com/csvData/'.$list[$num].'_status.txt';  
+    $filename[$num] = substr($list[$num],0,strlen($list[$num])-4);
+    $status_path[$num] = 'https://app-for-lms.herokuapp.com/csvData/'.$filename[$num].'_status.txt';  
     echo $status_path[$num];
     echo "<br>";
     //status_readの配列各要素にはファイル名とステータスのセットが入っている ok
