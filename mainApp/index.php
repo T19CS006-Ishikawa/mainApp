@@ -13,8 +13,8 @@
 				<form	enctype = "multipart/form-data" action = "./checkList.php"	method="POST">
 			<input type = "submit" value ="リストチェック">
 		</form>
-				</form>
-				<form	enctype = "multipart/form-data" action = "./checkStatus.php"	method="POST">
+				
+		<form	enctype = "multipart/form-data" action = "./checkStatus.php"	method="POST">
 			<input type = "submit" value ="ステータスチェック">
 		</form>
 
