@@ -13,6 +13,7 @@
 
 <?php
 $c = file_get_contents('https://file-upload-app.herokuapp.com/upfile/list.txt');
+$get_path = file_get_contents('https://file-upload-app.herokuapp.com/upfile/');
 //echo $c;
 $fp = "mainList.txt";
 $status = "_status.txt";
@@ -39,13 +40,15 @@ $textfile_array = glob('./csvData/*.txt');
 $work = "work";
 for($num = 0; $num < count($list)-1;$num++){
     //for($int = 0; $int < $count; $int++)
-
+    $path = $get_path.$name[$num]."csv";
+    $get = file_get_contents($path);
+    $get_array = explode(',', $get);
         
     //ファイル名にステータスを追加
-    if(strcmp($name[$num],$work)==0){
+    if(count($get_array) == 4){
         $list_status[$num]= $name[$num].",not,not,not";//名前,送信ステータス,リマインドステータス,提出ステータス
     }else{
-        $list_status[$num] = $name[$num]."not,not";//名前,送信ステータス、リマインドステータス
+        $list_status[$num] = $name[$num].",not,not";//名前,送信ステータス、リマインドステータス
     }
     
     
