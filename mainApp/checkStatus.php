@@ -17,7 +17,11 @@ for($num = 0; $num < count($read);$num++){
         //文頭のドットを除去
         $unEdited[$count] = substr($result[$num],1);
         //念の為ファイル名のみを取得しとく
+        
         $edited[$count] = substr($unEdited[$count],9);
+        $length = strlen($edited[$count]); //文字列の長さ
+        $edited[$count] = substr($edited[$count],0,$length-11);
+        
         //$edited[$count] = substr($edited[$count],-11);
         $count++;
     }
