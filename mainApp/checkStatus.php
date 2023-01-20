@@ -18,7 +18,7 @@ for($num = 0; $num < count($read);$num++){
         $unEdited[$count] = substr($result[$num],1);
         //念の為ファイル名のみを取得しとく
         $edited[$count] = substr($unEdited[$count],9);
-        $edited[$count] = substr($edited[$count],-11);
+        //$edited[$count] = substr($edited[$count],-11);
         $count++;
     }
 }
