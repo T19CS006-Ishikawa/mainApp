@@ -63,7 +63,7 @@ for($num = 0; $num < count($list)-1;$num++){
     echo "<br>";
     
     //ステータスを追加したものを新たに保存、ここでファイル名ごとにテキストファイルを作成する
-    $status_path = $path.$name[$num].status;
+    $status_path = $path.$name[$num].$status;
     echo $status_path."<br>";
    
     if(in_array($status_path, $textfile_array)){
