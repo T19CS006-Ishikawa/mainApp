@@ -42,6 +42,7 @@ for($num = 0; $num < count($list)-1;$num++){
     //for($int = 0; $int < $count; $int++)
     $path = $get_path.$name[$num]."csv";
     $get = file_get_contents($path);
+    echo $get;
     $get_array = explode(',', $get);
         
     //ファイル名にステータスを追加
