@@ -1,7 +1,7 @@
 <?php
 //提出ステータスのチェックを行い、notであれば日付をチェックし、リマインドする日であればメッセージを送信する。
 //まずステータスを取得するために、今あるテキストファイルのうちから*_status.txtを取得する
-$read = glob('./csvdata/*.txt');
+$read = glob('./csvData/*.txt');
 var_dump($read);
 echo "<br>";
 $count = 0;
