@@ -13,7 +13,7 @@ for($num = 0; $num < count($read);$num++){
         //文頭のドットを除去
         $unEdited[$count] = substr($result[$num],1);
         //念の為ファイル名のみを取得しとく
-        $edited[$count] = substr($unEdited[$count], 10);
+        $edited[$count] = substr($unEdited[$count], 9);
         $count++;
     }
 }
@@ -21,7 +21,7 @@ for($num = 0; $num < count($read);$num++){
 $url = 'https://app-for-lms.herokuapp.com/';
 
 for($num = 0; $num < count($unEdited);$num++){
-    $path = $url.$unEdited;
+    $path = $url.$unEdited[$num];
     $status_array[$num] = file_get_contents($path);
     echo $status_array[$num]."<br>";
 }
