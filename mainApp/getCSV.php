@@ -34,7 +34,7 @@ for($num = 0; $num < count($list)-1;$num++){
     $status_read[$num] = file_get_contents($status_path[$num]);
 }
 var_dump($status_read);
-
+    $work = "work";
 
 
 //listの末尾要素以外にそれぞれファイル名が格納されている
@@ -48,7 +48,7 @@ for($num = 0; $num < count($list)-1;$num++){
     //中身のテキストからダブルクォーテーションを除去
     $data = str_replace('"', '', $data);
 
-    //ファイル名をもとに対応するテキストファイルを呼び出し、中身を見る＿＿＿＿＿＿＿＿＿＿
+    //ファイル名をもとに対応するテキストファイルを呼び出し、中身を見る
     $textfile = $status_path[$num];
     $check = file_get_contents($textfile);
  
@@ -97,8 +97,15 @@ for($num = 0; $num < count($list)-1;$num++){
     //送信ステータスを変更(sendに)する
     $get_status[1] = "send";
     
+    
     //ステータスを反映させるために上書き
-    $file_data = $get_status[0].','.$get_status[1].','.$get_status[2];
+    $needle = $get_status[0];
+    if(strcmp($work, $needle) == 0){
+    $file_data = $get_status[0].','.$get_status[1].','.$get_status[2].','.$get_status[3];
+    }
+    else{
+        $file_data = $get_status[0].','.$get_status[1].','.$get_status[2];
+    }
  
     
     $_path = substr($status_path[$num],33);

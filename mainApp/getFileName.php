@@ -36,13 +36,19 @@ for($num = 0; $num < count($list)-1;$num++){
 
 //現時点でのテキストファイルの一覧を取得
 $textfile_array = glob('./csvData/*.txt');
-
+$work = "work";
 for($num = 0; $num < count($list)-1;$num++){
     //for($int = 0; $int < $count; $int++)
 
         
     //ファイル名にステータスを追加
-    $list_status[$num]= $name[$num].",not,not";
+    if(strcmp($name[$num],$work)==0){
+        $list_status[$num]= $name[$num].",not,not,not";//名前,送信ステータス,リマインドステータス,提出ステータス
+    }else{
+        $list_status[$num] = $name[$num]."not,not";//名前,送信ステータス、リマインドステータス
+    }
+    
+    
     echo $list_status[$num];
     echo "<br>";
     
