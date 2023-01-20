@@ -13,7 +13,7 @@
 
 <?php
 $c = file_get_contents('https://file-upload-app.herokuapp.com/upfile/list.txt');
-$get_path = file_get_contents('https://file-upload-app.herokuapp.com/upfile/');
+$get_path = 'https://file-upload-app.herokuapp.com/upfile/';
 //echo $c;
 $fp = "mainList.txt";
 $status = "_status.txt";
