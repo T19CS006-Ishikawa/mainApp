@@ -1,5 +1,6 @@
 <?php
 //csvファイルの中身から日付を取得して、それを元にリマインドの日付を導出し今の日付と比較する
+$csv_url = 'https://file-upload-app.herokuapp.com/upfile/';
 
 $read = glob('./csvData/*.txt');
 var_dump($read);
@@ -20,9 +21,10 @@ for($num = 0; $num < count($read);$num++){
 }
 
 $url = 'https://app-for-lms.herokuapp.com/';
-$schedule_path = $url.'checkSchedule.php';
+
 for($num = 0; $num < count($unEdited);$num++){
     $path = $url.$unEdited[$num];
+    $csv_path = $
     $status_array[$num] = file_get_contents($path);
     echo $status_array[$num]."<br>";
     $status = explode(',', $status_array[$num]);

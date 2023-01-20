@@ -99,7 +99,6 @@ for($num = 0; $num < count($list)-1;$num++){
     
     
     //ステータスを反映させるために上書き
-    $needle = $work;
     if(count($array) == 4){
     $file_data = $get_status[0].','.$get_status[1].','.$get_status[2].','.$get_status[3];
     }
