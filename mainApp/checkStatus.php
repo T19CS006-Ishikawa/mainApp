@@ -5,6 +5,7 @@ $read = glob('./csvData/*.txt');
 var_dump($read);
 echo "<br>";
 $count = 0;
+$target = "not";
 
 for($num = 0; $num < count($read);$num++){
     $result[$num] = $read[$num];
@@ -19,11 +20,17 @@ for($num = 0; $num < count($read);$num++){
 }
 
 $url = 'https://app-for-lms.herokuapp.com/';
-
+$schedule_path = $url.'checkSchedule.php';
 for($num = 0; $num < count($unEdited);$num++){
     $path = $url.$unEdited[$num];
     $status_array[$num] = file_get_contents($path);
     echo $status_array[$num]."<br>";
+    $status = explode(',', $status_array[$num]);
+    
+    if(strcmp($status[2],$target) == 0){
+        file_get_contents($schedule_path);
+        //if
+    }
 }
 
 var_dump($edited);
