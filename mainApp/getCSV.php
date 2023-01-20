@@ -99,15 +99,15 @@ for($num = 0; $num < count($list)-1;$num++){
     
     
     //ステータスを反映させるために上書き
-    $needle = $get_status[0];
-    if(strcmp($work, $needle) == 0){
+    $needle = $work;
+    if(count($array) == 4){
     $file_data = $get_status[0].','.$get_status[1].','.$get_status[2].','.$get_status[3];
     }
     else{
         $file_data = $get_status[0].','.$get_status[1].','.$get_status[2];
     }
  
-    
+    var_dump($get_status);
     $_path = substr($status_path[$num],33);
     $edit_path = __DIR__.$_path;
     echo $edit_path."<br>";
