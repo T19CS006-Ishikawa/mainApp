@@ -42,10 +42,10 @@ $work = "work";
 for($num = 0; $num < count($list)-1;$num++){
     //for($int = 0; $int < $count; $int++)
     echo "loop".$num."<br>";
-    $path = $get_path.$name[$num].".csv";
-    echo "path"."<br>";
+    $_path = $get_path.$name[$num].".csv";
+    echo $_path."<br>";
         
-    $get = file_get_contents($path);
+    $get = file_get_contents($_path);
     echo $get."<br>";
     $get_array = explode(',', $get);
     var_dump($get_array);
@@ -63,7 +63,7 @@ for($num = 0; $num < count($list)-1;$num++){
     echo "<br>";
     
     //ステータスを追加したものを新たに保存、ここでファイル名ごとにテキストファイルを作成する
-    $status_path = $path.$name[$num].$status;
+    $status_path = $path.$name[$num].status;
     echo $status_path."<br>";
    
     if(in_array($status_path, $textfile_array)){
