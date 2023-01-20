@@ -6,7 +6,7 @@ $read = glob('./csvdata/*.txt');
 $count = 0;
 
 for($num = 0; $num < count($read);$num++){
-    $result[$num] = read[$num];
+    $result[$num] = $read[$num];
     $test = strpos($result[$num], "_status.txt");
     if($test !== false){
         $unEdited[$count] = $result[$num];
