@@ -33,8 +33,11 @@ for($num = 0; $num < count($unEdited);$num++){
         echo "yeah"."<br>";
        //file_get_contents($schedule_path);
        $get_path  = $csv_url.$edited[$num].".csv";
+       echo $get_path."<br>";
        $read_csv = file_get_contents($get_path);
        $csv_array = explode(',',$read_csv);
+       var_dump($csv_array);
+       echo "<br>";
        $date = $csv_array[1];  //日付を取得
        $date_array = explode('/',$date);
        var_dump($date_array);
