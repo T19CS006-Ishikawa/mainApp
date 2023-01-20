@@ -28,7 +28,8 @@ for($num = 0; $num < count($unEdited);$num++){
     $status = explode(',', $status_array[$num]);
     
     if(strcmp($status[2],$target) == 0){
-        file_get_contents($schedule_path);
+        echo "yeah"."<br>";
+       //file_get_contents($schedule_path);
         //if
     }
 }
