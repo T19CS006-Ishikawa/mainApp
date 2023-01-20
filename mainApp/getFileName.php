@@ -42,9 +42,13 @@ $work = "work";
 for($num = 0; $num < count($list)-1;$num++){
     //for($int = 0; $int < $count; $int++)
     $path = $get_path.$name[$num].".csv";
+    echo "path"."<br>";
+        
     $get = file_get_contents($path);
-    echo $get;
+    echo $get."<br>";
     $get_array = explode(',', $get);
+    var_dump($get_array);
+    echo "<br>";
         
     //ファイル名にステータスを追加
     if(count($get_array) == 4){
