@@ -22,7 +22,6 @@ for($num = 0; $num < count($read);$num++){
         $length = strlen($edited[$count]); //文字列の長さ
         $edited[$count] = substr($edited[$count],0,$length-11);
         
-        //$edited[$count] = substr($edited[$count],-11);
         $count++;
     }
 }
