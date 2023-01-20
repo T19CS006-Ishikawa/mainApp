@@ -34,6 +34,7 @@ for($num = 0; $num < count($list)-1;$num++){
     $name_array = explode('.', $list[$num]);
     $name[$num] = $name_array[0];
 }
+var_dump($name);
 
 //現時点でのテキストファイルの一覧を取得
 $textfile_array = glob('./csvData/*.txt');
