@@ -41,6 +41,7 @@ $textfile_array = glob('./csvData/*.txt');
 $work = "work";
 for($num = 0; $num < count($list)-1;$num++){
     //for($int = 0; $int < $count; $int++)
+    echo "loop".$num."<br>";
     $path = $get_path.$name[$num].".csv";
     echo "path"."<br>";
         
@@ -74,7 +75,7 @@ for($num = 0; $num < count($list)-1;$num++){
     
         fclose($handle);
          
-
+    echo "loop".$num."end"."<br>";
 }
 
 ?>
