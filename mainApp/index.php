@@ -17,6 +17,9 @@
 		<form	enctype = "multipart/form-data" action = "./checkStatus.php"	method="POST">
 			<input type = "submit" value ="ステータスチェック">
 		</form>
+		<form	enctype = "multipart/form-data" action = "./do_all.php"	method="POST">
+			<input type = "submit" value ="すべて実行">
+		</form>
 
 	</body>
 </html>
