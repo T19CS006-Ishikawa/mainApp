@@ -120,7 +120,7 @@ for($num = 0; $num < count($unEdited);$num++){
                $file_data = $status[0].','.$status[1].','.$status[2];
            }
            
-           $status_text_path = $csvData_path.$unEdited[$num];
+           $status_text_path = __DIR__.$unEdited[$num];
           echo $status_text_path."<br>";
            $file_handle = fopen($status_text_path,'w');
            fputs($file_handle,$file_data);
