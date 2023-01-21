@@ -95,7 +95,7 @@ for($num = 0; $num < count($unEdited);$num++){
        
        //リマインドの日だった時の処理を以下のif内で行う
        if(strtotime($today) == strtotime($target_date)){
-          // echo "succsess"."<br>";
+           echo "succsess"."<br>";
            if(count($csv_array) == 4){   
                    $sentense = "明日提出の課題があります。"."\n"."科目：".$csv_array[2]."\n"."課題名：".$csv_array[3]."\n"."期限：".$csv_array[1];
            }else{
@@ -103,11 +103,13 @@ for($num = 0; $num < count($unEdited);$num++){
            }
            $content = $sentense;
            
+           echo "succsess 1"."<br>";
            //送信用のテキストファイル
            $file_handle = fopen($csvData_path."push.txt",'w');
            fputs($file_handle, $content);
            fclose($file_handle);
            
+           echo "succsess 2"."<br>";
            //プッシュメッセージ送信
            file_get_contents($push_url);
            
@@ -120,6 +122,7 @@ for($num = 0; $num < count($unEdited);$num++){
            else{
                $file_data = $status[0].','.$status[1].','.$status[2];
            }
+           echo "succsess3"."<br>";
            
            $file_handle = fopen($path,'w');
            fputs($file_handle,$file_data);
