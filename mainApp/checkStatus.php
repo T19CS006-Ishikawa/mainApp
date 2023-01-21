@@ -62,9 +62,10 @@ for($num = 0; $num < count($unEdited);$num++){
                }else {
                    $int_date = 31;
                }
-                  
            }
            
+       }else{
+           $int_date--;
        }
        
        $target_date = $int_year.'/'.$int_month.'/'.$int_date;
