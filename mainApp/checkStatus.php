@@ -68,8 +68,23 @@ for($num = 0; $num < count($unEdited);$num++){
            $int_date--;
        }
        
-       $target_date = $int_year.'/'.$int_month.'/'.$int_date;
-       $str_target_date = (string)$target_date;
+       if($int_date > 9){
+           if($int_month > 9){
+                 $target_date = $int_year.'/'.$int_month.'/'.$int_date;
+                 $str_target_date = (string)$target_date;
+           }else {
+                 $target_date = $int_year.'/0'.$int_month.'/'.$int_date;
+                 $str_target_date = (string)$target_date;
+           }
+       }else{
+           if($int_month > 9){
+               $target_date = $int_year.'/'.$int_month.'/0'.$int_date;
+               $str_target_date = (string)$target_date;
+           }else {
+               $target_date = $int_year.'/0'.$int_month.'/0'.$int_date;
+               $str_target_date = (string)$target_date;
+           }
+       }
        echo $str_target_date."<br>";
        $today = date('Y/m/d',time());
        echo $today."<br>";
