@@ -74,7 +74,7 @@ for($num = 0; $num < count($unEdited);$num++){
        $today = date('Y/m/d',time());
        echo $today."<br>";
        
-       if(strtotime($today) == strtotime($target_date)){
+       if(strtotime($today) < strtotime($target_date)){
            echo "succsess"."<br>";
        }
        
