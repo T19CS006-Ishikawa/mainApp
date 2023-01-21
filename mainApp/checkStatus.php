@@ -3,6 +3,7 @@
 //まずステータスを取得するために、今あるテキストファイルのうちから*_status.txtを取得する
 $csv_url = 'https://file-upload-app.herokuapp.com/upfile/';
 $url = 'https://app-for-lms.herokuapp.com/';
+$push_url ='https://app-for-lms.herokuapp.com/pushMessage.php';
 
 $read = glob('./csvData/*.txt');
 
@@ -38,6 +39,8 @@ for($num = 0; $num < count($unEdited);$num++){
        $get_path  = $csv_url.$edited[$num].".csv";
        
        $read_csv = file_get_contents($get_path);
+       
+       //csvデータの中身(work,科目名...)が入っている
        $csv_array = explode(',',$read_csv);
        
        $date = $csv_array[1];  //日付を取得
@@ -89,11 +92,39 @@ for($num = 0; $num < count($unEdited);$num++){
        $today = date('Y/m/d',time());
        echo $today."<br>";
        
+       //リマインドの日だった時の処理を以下のif内で行う
        if(strtotime($today) == strtotime($target_date)){
-           echo "succsess"."<br>";
+          // echo "succsess"."<br>";
+           if(count($csv_array) == 4){   
+                   $sentense = "明日提出の課題があります。"."\n"."科目：".$csv_array[2]."\n"."課題名：".$csv_array[3]."\n"."期限：".$csv_array[1];
+           }else{
+                   $sentense = "明日に試験のある科目があります。"."\n"."科目：".$csv_array[2]."\n"."日程：".$csv_array[1];
+           }
+           $content = $sentense;
+           
+           //送信用のテキストファイル
+           $file_handle = fopen($path."push.txt",'w');
+           fputs($file_handle, $content);
+           fclose($file_handle);
+           
+           //プッシュメッセージ送信
+           file_get_contents($push_url);
+           
+           //リマインドステータスを変更(sendに)する
+           $status[2] = "send";
        }
+       //ステータスを反映させるために上書き
+       if(count($csv_array) == 4){
+           $file_data = $status[0].','.$status[1].','.$status[2].','.$status[3];
+       }
+       else{
+           $file_data = $status[0].','.$status[1].','.$status[2];
+       }
+
+       $file_handle = fopen($path,'w');
+       fputs($file_handle,$file_data);
+       fclose($file_handle);
        
-        
     }
 }
 
