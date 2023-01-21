@@ -124,7 +124,8 @@ for($num = 0; $num < count($unEdited);$num++){
            }
            echo "succsess3"."<br>";
            
-           $file_handle = fopen($path,'w');
+           $status_text_path = $csvData_path.$unEdited[$num];
+           $file_handle = fopen($status_text_path,'w');
            fputs($file_handle,$file_data);
            fclose($file_handle);
        }
