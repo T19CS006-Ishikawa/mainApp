@@ -3,7 +3,7 @@
 //まずステータスを取得するために、今あるテキストファイルのうちから*_status.txtを取得する
 $csv_url = 'https://file-upload-app.herokuapp.com/upfile/';
 $url = 'https://app-for-lms.herokuapp.com/';
-$csvData_path = 'https://app-for-lms.herokuapp.com/csvData/';
+$csvData_path = __DIR__.'/csvData/';
 $push_url ='https://app-for-lms.herokuapp.com/pushMessage.php';
 
 $read = glob('./csvData/*.txt');
