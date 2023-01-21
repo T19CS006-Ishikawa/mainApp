@@ -103,13 +103,10 @@ for($num = 0; $num < count($unEdited);$num++){
            }
            $content = $sentense;
            
-           echo "succsess 1"."<br>";
            //送信用のテキストファイル
            $file_handle = fopen($csvData_path."push.txt",'w');
            fputs($file_handle, $content);
            fclose($file_handle);
-           
-           echo "succsess 2"."<br>";
            //プッシュメッセージ送信
            file_get_contents($push_url);
            
@@ -122,9 +119,9 @@ for($num = 0; $num < count($unEdited);$num++){
            else{
                $file_data = $status[0].','.$status[1].','.$status[2];
            }
-           echo "succsess3"."<br>";
            
            $status_text_path = $csvData_path.$unEdited[$num];
+          echo $status_text_path."<br>";
            $file_handle = fopen($status_text_path,'w');
            fputs($file_handle,$file_data);
            fclose($file_handle);
