@@ -3,6 +3,7 @@
 //まずステータスを取得するために、今あるテキストファイルのうちから*_status.txtを取得する
 $csv_url = 'https://file-upload-app.herokuapp.com/upfile/';
 $url = 'https://app-for-lms.herokuapp.com/';
+$csvData_path = 'https://app-for-lms.herokuapp.com/csvData/';
 $push_url ='https://app-for-lms.herokuapp.com/pushMessage.php';
 
 $read = glob('./csvData/*.txt');
@@ -103,7 +104,7 @@ for($num = 0; $num < count($unEdited);$num++){
            $content = $sentense;
            
            //送信用のテキストファイル
-           $file_handle = fopen($path."push.txt",'w');
+           $file_handle = fopen($csvData_path."push.txt",'w');
            fputs($file_handle, $content);
            fclose($file_handle);
            
@@ -112,18 +113,20 @@ for($num = 0; $num < count($unEdited);$num++){
            
            //リマインドステータスを変更(sendに)する
            $status[2] = "send";
-       }
-       //ステータスを反映させるために上書き
-       if(count($csv_array) == 4){
-           $file_data = $status[0].','.$status[1].','.$status[2].','.$status[3];
-       }
-       else{
-           $file_data = $status[0].','.$status[1].','.$status[2];
+           //ステータスを反映させるために上書き
+           if(count($status) == 4){
+               $file_data = $status[0].','.$status[1].','.$status[2].','.$status[3];
+           }
+           else{
+               $file_data = $status[0].','.$status[1].','.$status[2];
+           }
+           
+           $file_handle = fopen($path,'w');
+           fputs($file_handle,$file_data);
+           fclose($file_handle);
        }
 
-       $file_handle = fopen($path,'w');
-       fputs($file_handle,$file_data);
-       fclose($file_handle);
+
        
     }
 }
