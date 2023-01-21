@@ -71,6 +71,8 @@ for($num = 0; $num < count($unEdited);$num++){
        $target_date = $int_year.'/'.$int_month.'/'.$int_date;
        $str_target_date = (string)$target_date;
        echo $str_target_date."<br>";
+       $today = date('Y/m/d',time());
+       echo $today."<br>";
        
         
     }
