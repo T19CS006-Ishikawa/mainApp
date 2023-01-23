@@ -35,8 +35,6 @@ for($num = 0; $num < count($list)-1;$num++){
     //status_readの配列各要素にはファイル名とステータスのセットが入っている ok
     $status_read[$num] = file_get_contents($status_path[$num]);
 }
-var_dump($status_read);
-    $work = "work";
 
 
 //listの末尾要素以外にそれぞれファイル名が格納されている
@@ -95,6 +93,7 @@ for($num = 0; $num < count($list)-1;$num++){
     
     //プッシュメッセージ送信
     file_get_contents($push_path);
+    echo "「".$list[$num]."」の情報をLINE送信しました。送信ステータスを変更します。"."<br>";
     
     //送信ステータスを変更(sendに)する
     $get_status[1] = "send";

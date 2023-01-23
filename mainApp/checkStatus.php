@@ -31,7 +31,6 @@ for($num = 0; $num < count($read);$num++){
 for($num = 0; $num < count($unEdited);$num++){
     $path = $url.$unEdited[$num];
     $status_array[$num] = file_get_contents($path);
-    echo $status_array[$num]."<br>";
     $status = explode(',', $status_array[$num]);
     
     if(strcmp($status[2],$target) == 0){
@@ -89,13 +88,13 @@ for($num = 0; $num < count($unEdited);$num++){
                $str_target_date = (string)$target_date;
            }
        }
-       echo $str_target_date."<br>";
+       echo "リマインドする日程：".$str_target_date."<br>";
        $today = date('Y/m/d',time());
-       echo $today."<br>";
+       echo "今日".$today."<br>";
        
        //リマインドの日だった時の処理を以下のif内で行う
        if(strtotime($today) == strtotime($target_date)){
-           echo "succsess"."<br>";
+           
            if(count($csv_array) == 4){   
                    $sentense = "明日提出の課題があります。"."\n"."科目：".$csv_array[2]."\n"."課題名：".$csv_array[3]."\n"."期限：".$csv_array[1];
            }else{
@@ -127,11 +126,7 @@ for($num = 0; $num < count($unEdited);$num++){
            fclose($file_handle);
        }
 
-
-       
     }
 }
-
-//var_dump($edited);
 
 ?>
