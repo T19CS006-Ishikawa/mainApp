@@ -92,6 +92,10 @@ for($num = 0; $num < count($unEdited);$num++){
        $today = date('Y/m/d',time());
        echo "今日".$today."<br>";
        
+       if(strtotime($today) > strtotime($target_date)){
+           continue;
+       }
+       
        //リマインドの日だった時の処理を以下のif内で行う
        if(strtotime($today) == strtotime($target_date)){
            
