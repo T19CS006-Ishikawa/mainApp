@@ -17,9 +17,8 @@
 //ダウンロード元のURL
 $dlpath = 'https://file-upload-app.herokuapp.com/upfile';
 //プッシュメッセージを送るためのパス
-
 //$push_path ='https://app-for-lms.herokuapp.com/pushMessage.php';
-$push_path ='https://app-for-lms.herokuapp.com/multiCast.php';
+$push_path ='https://line-bot-tester01.herokuapp.com/multiCast.php';
 
 //mainListからファイル名の一覧を取得
 $fp = "mainList.txt";
