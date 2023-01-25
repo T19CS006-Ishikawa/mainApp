@@ -57,7 +57,6 @@ for($num = 0; $num < count($list)-1;$num++){
     if($get_status[1] == "not"){
     //カンマ区切りで配列に格納
     $array = explode(',', $data);
-    print_r($array);
 
     //課題データ(テキスト)を保存するためのテキストファイルを作成＋追記する
     $path = __DIR__.'/csvData/';
@@ -106,10 +105,8 @@ for($num = 0; $num < count($list)-1;$num++){
         $file_data = $get_status[0].','.$get_status[1].','.$get_status[2];
     }
  
-    var_dump($get_status);
     $_path = substr($status_path[$num],33);
     $edit_path = __DIR__.$_path;
-    echo $edit_path."<br>";
     $file_handle = fopen($edit_path,'w');
     fputs($file_handle,$file_data);
     fclose($file_handle);
