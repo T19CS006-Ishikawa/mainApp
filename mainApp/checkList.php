@@ -1,6 +1,7 @@
 <?php
 $read = glob('./csvData/*.txt');
 echo "ファイル一覧<br>";
+echo  "/csvData/data.txt<br>";
 
 for($num = 0; $num < count($read);$num++){
     $result[$num] = $read[$num];
