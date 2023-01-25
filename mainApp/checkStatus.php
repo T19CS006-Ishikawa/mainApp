@@ -96,9 +96,11 @@ for($num = 0; $num < count($unEdited);$num++){
                $str_target_date = (string)$target_date;
            }
        }
+       echo $unEdited[$num]."<br>";
        echo "リマインドする日程：".$str_target_date."<br>";
        $today = date('Y/m/d',time());
-       echo "今日".$today."<br>";
+       echo "今日".$today."<br><br>";
+       
        
        if(strtotime($today) > strtotime($target_date)){
            continue;
