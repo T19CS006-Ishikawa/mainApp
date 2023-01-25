@@ -10,6 +10,8 @@ $read = glob('./csvData/*.txt');
 
 $count = 0;
 $target = "not";
+$work = "work";
+$done = "done";
 
 for($num = 0; $num < count($read);$num++){
     $result[$num] = $read[$num];
@@ -42,6 +44,12 @@ for($num = 0; $num < count($unEdited);$num++){
        
        //csvデータの中身(work,科目名...)が入っている
        $csv_array = explode(',',$read_csv);
+       
+       if(strcmp($csv_array[0],$work) == 0){
+           if(strcmp($status[3],$done) == 0){
+               continue;
+           }
+       }
        
        $date = $csv_array[1];  //日付を取得
        $date_array = explode('/',$date);
